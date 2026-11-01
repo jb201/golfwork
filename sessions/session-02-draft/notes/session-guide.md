@@ -1,6 +1,6 @@
 # Session 02 — A natural swing, a more repeatable strike
 
-**Status:** Next-session guide; date not yet chosen. No results recorded. This document is not yet a dated journal entry.
+**Status:** Original undated working guide, now captured in [the saved Session 02 plan](../../2026-11-02-session-02/session.json). November 2 is a tentative planning date, not confirmed attendance. No results recorded. Use the journal for the saved instructions.
 
 **Focus:** 7-iron only. Normal stance, comfortable effort, one cue.
 

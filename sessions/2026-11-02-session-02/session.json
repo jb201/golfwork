@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-02-session-02",
+  "date": "2026-11-02",
+  "title": "Session 02 — A natural swing, a repeatable strike",
+  "plan": {
+    "createdAt": "2026-11-01",
+    "basedOnSessionId": "2026-11-01-session-01",
+    "rationale": "November 2 is a tentative journal planning date, not a confirmed appointment or completion date. Session 01 taught a lead-support sensation but did not establish pressure timing or a path correction. The freer block averaged 84.8 yd carry / 95.9 yd total across 25 shots, with total ranging from 45.1 to 117.6 yd; different swing lengths and efforts confounded comparisons. The headcover produced four consecutive inside-out readings, then returned outside-in. This session tests one simple swing-through cue at consistent intended swing length and effort, followed by cue-free transfer. It is an exploratory comparison, not proof of a sequencing correction. Working assumption: the reported slight post-session soreness has settled; stop if discomfort increases or changes movement, and seek advice if persistent or recurring.",
+    "focus": "7i only — Normal stance, comfortable effort, one cue; 20 shots with breaks. Date tentative.",
+    "cue": "Swing through to my finish.",
+    "schedule": [
+      "Setup: device set to 7i; same target, hitting position, ball type and simulator conditions throughout. Use usual grip, stance and ball position. No stagger, headcover or deliberate hip shift.",
+      "Warm up with a few easy no-ball swings in clear space. Choose a comfortable normal swing length and effort—not hip-to-hip drill swings or maximum speed. Keep that intention throughout.",
+      "A: 5 starting shots using your usual routine without a technical cue.",
+      "B1: 5 shots with the single cue 'Swing through to my finish.' Rest briefly.",
+      "B2: 5 more shots using exactly the same cue and intended effort.",
+      "C: 5 cue-free shots using your usual target-based routine. Do not chase a good final number.",
+      "Rest between blocks and take normal time between shots. Twenty shots is a planned amount, not an obligation if tired or uncomfortable. Hide live distance/path feedback if it encourages number chasing.",
+      "Capture: preserve the original CSV and all mishits. Note shot-number boundaries for A, B1, B2 and C; identify recorded warm-up shots separately. Do not change club settings as markers. Upload handedness and device model with the data.",
+      "Optional strike evidence: if permitted, use impact tape or an approved marking product consistently across all blocks; photograph and reset after each five-shot block. Omit if it affects tracking or is not permitted. Distance and face-to-path do not measure centered contact.",
+      "Afterwards: upload the original CSV, boundary note and optional images/video. Say freer, more forced or unchanged, plus any fatigue or effort changes. No per-shot scores.",
+      "Review: compare all blocks using carry/total, ball-speed variation, available strike images and path/face together. Keep all shots and sample sizes. Look for a useful pattern in both B blocks and transfer into C; small samples, order and fatigue limit conclusions. The 145-yard average remains the long-term goal, not today's challenge."
+    ],
+    "drills": [
+      {
+        "id": "starting-swing",
+        "title": "A — Record your starting swing",
+        "purpose": "Purpose of this drill is to record your comfortable normal swing before adding a cue.",
+        "setup": "Normal 7i address, one target, chosen comfortable normal swing length and effort. Keep settings and equipment consistent across all blocks.",
+        "steps": ["Look at the target and use your usual routine.", "Hit five shots without consciously arranging hips, chest and arms in sequence.", "Keep every recorded shot, including mishits; note block boundaries."],
+        "feel": "Your own normal swing. There is nothing to correct yet.",
+        "cue": "No technical cue; use your usual target-based routine.",
+        "reps": "5 recorded shots.",
+        "troubleshooting": "Do not respond to a short shot by swinging harder. Note substantial setup or device changes rather than silently treating shots as comparable."
+      },
+      {
+        "id": "swing-through",
+        "title": "B1 and B2 — Swing through, rather than manage body parts",
+        "purpose": "Purpose of this drill is to test whether one continuous swing-through intention improves repeatable delivery without adding mechanical complexity.",
+        "setup": "Exactly the same normal stance, ball position, target, intended swing length and effort as A. No obstacle or special foot position.",
+        "steps": ["Before each set of five, make one easy no-ball rehearsal at your chosen swing length, letting the club move back and through continuously.", "Address normally. Use only 'Swing through to my finish.'", "Let the club continue beyond the ball as arms and body move through naturally. Do not shove hips, hold arms back, reach toward the target or deliberately swing more inside-out.", "Let the finish happen. Do not manufacture a high finish, extra rotation or a held pose.", "Hit five shots, rest briefly, then repeat the same five-shot block."],
+        "feel": "The ball is on the way through—not the place where the swing stops. This is an intention, not a command to accelerate harder.",
+        "cue": "Swing through to my finish.",
+        "reps": "Two sets of 5 shots, 10 total. Record B1 and B2 boundaries separately.",
+        "troubleshooting": "If the cue creates tension, harder swinging or a forced finish, drop it and use your normal routine; note that change afterwards. Do not add a rescue cue. Stop if uncomfortable."
+      },
+      {
+        "id": "cue-free-transfer",
+        "title": "C — Take the cue away",
+        "purpose": "Purpose of this drill is to see whether any useful change carries into your normal routine without consciously doing the drill.",
+        "setup": "Same normal stance, target and intended swing length/effort as the previous blocks.",
+        "steps": ["Return to your usual target-based routine.", "Hit five shots with no rehearsal devoted to the cue and no technical instruction during the swing.", "Keep mishits and note fatigue or changes in effort."],
+        "feel": "Play the shot rather than perform an exercise.",
+        "cue": "No technical cue; use your usual routine.",
+        "reps": "5 recorded shots.",
+        "troubleshooting": "Do not bring back the cue to chase a good final number. A small exploratory block cannot prove lasting improvement."
+      }
+    ],
+    "playThrough": "Optional play afterwards is separate from the 20-shot experiment. Record it separately; only relevant 7i opportunities are reviewed. No driver, short-game or scoring instruction.",
+    "videoNote": "Optional: film a few starting and cue shots down the line, showing the whole golfer and club with the camera safely outside the swing area. No video is required. Handedness and device model remain unconfirmed; do not assume directional interpretation. No staggered-stance demonstration is prescribed for this session."
+  },
+  "result": null
+}
