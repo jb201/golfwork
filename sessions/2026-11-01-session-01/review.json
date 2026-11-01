@@ -1,0 +1,24 @@
+{
+  "title": "Post-lesson review — What changed, what did not",
+  "status": "Practice and play reviewed; lower-back follow-up pending",
+  "safety": {"unresolved": true, "message": "Lower-back discomfort reported after practice; current symptoms are not yet clarified. Pause swing drills while symptoms persist. Do not force hip shifts or twist through pain. Seek clinical assessment if persistent, worsening or recurring; urgent evaluation for new leg weakness, saddle numbness or bladder/bowel changes."},
+  "feedback": [
+    "the first set was staggered drill, second set was half swings non-staggered.  3rd set was trying to swing a bit freer, and 4th set was with the headcover.   .  This was the play, and not so great, I really wan'st hitting the ball well today.  Also make sure you are saving these files and building a post lesson analysis that is persisted so we can continue to work twith this",
+    "so first the practice csv playershots just uploaded.  The everytime I switched task, I would hti a shot or two with the club set on a different club.   So I first ran the staggered feel, and it was fine, I did feel the shift in to the hip, but it didn't change much, balance was okay , but it wasn't a full follow through, the club ended up pointed to the target (hip to hip height).   I felt it, but not much here.  I then switched to i8, then back to i7 and then did the same thing with a more normal setup.   I then finsihed that up, decided to hit a few 3 hybrids, and then went back to the i7 but this time tried with  club cover just outside ball to prevent the over the top, and I think this worked some too... this was just more discovery.  As a note, my lower back feels a little weird.  After this  I will upload the player shots, and we can do some more analysis together"
+  ],
+  "findings": [
+    "Hip-to-hip finish matched the small-swing prescription. The purpose was lead support, not immediate distance or path improvement. Feeling support and staying balanced does not prove pressure timing.",
+    "Staggered and non-staggered half-swings both remained entirely O-I in the device path field. This session does not support claiming a path fix from those drills. Mean absolute path was 9.15 degrees and 13.59 degrees respectively.",
+    "The freer block increased ball speed and distance versus half-swings, but was exploratory: its 95.86-yard average total is not a standardized full-swing result. Do not label its difference from the baseline a regression.",
+    "The headcover block changed the reported path on four consecutive shots, 78–81 (I-O), before returning to O-I on 82–84. Mean absolute path remained 7.37 degrees. Signed averaging would hide two-sided variation. Face control and distance were not consistently improved; this is an experiment, not a proven correction.",
+    "Play has only one I7 opportunity, hole 2/global shot 7: 103.5 yd carry, 105.5 yd total, 80.1 mph ball speed, 6.0 degrees O-I, 6.7 degrees open face-to-path, and 9.1 yd right offline. One shot cannot establish carryover or a reliable play average.",
+    "Play contains 21 recorded shots across holes 1–8, with global-number gaps through 34. Do not reconstruct scores, penalties, putts, or missing swings. Hole 8 is represented, not proven complete.",
+    "Club speed and smash factor are unavailable (zero) throughout both exports. Six play rows show all-zero AoA/path/face/loft packets: these are not evidence of neutral delivery. CSV path cannot directly establish foot pressure or full-body sequencing; confirm handedness and device before directional interpretation.",
+    "All raw rows and mishits are retained. Marker clubs identify task boundaries, not necessarily actual clubs used. Driver and short-game coaching remain outside scope. No injury diagnosis is made from the exports."
+  ],
+  "nextDiscussion": [
+    "Clarify location, severity and persistence of the lower-back sensation before another active drill plan.",
+    "Confirm actual club use versus marker settings, handedness, device setup and effort/swing length. Capture swing video only when comfortable.",
+    "Keep the lead-support exercise and headcover-path experiment separate. Once comfortable, assess repeatable path and face control rather than chasing a signed path mean or longest shots."
+  ]
+}

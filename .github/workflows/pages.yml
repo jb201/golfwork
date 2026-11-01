@@ -35,6 +35,7 @@ jobs:
           mkdir -p _site
           cp index.html _site/
           cp -r assets coach data sessions _site/
+          find _site/sessions -type d -name sources -prune -exec rm -rf {} +
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:

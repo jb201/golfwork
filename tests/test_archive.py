@@ -10,6 +10,7 @@ spec = importlib.util.spec_from_file_location('publisher', ROOT / 'scripts' / 'p
 publisher = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(publisher)
 SEED = json.loads((ROOT / 'sessions' / '2026-11-01-session-01' / 'session.json').read_text(encoding='utf-8'))
+SEED['result'] = None
 
 
 class ArchiveTests(unittest.TestCase):

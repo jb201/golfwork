@@ -34,3 +34,6 @@ test('empty history is not fabricated and unsafe session IDs fail', () => {
   assert.throws(() => createPlan([],drills,'2026-11-01','Bad','../escape'), /Invalid/);
   assert.throws(() => validateSession({...s,date:'2026-02-30'}), /Invalid/);
 });
+test('pending symptom follow-up blocks another active drill prescription', () => {
+  assert.throws(() => createPlan([{date:'2026-11-01',id:'2026-11-01-session-01',result:{sevenTotal:96},review:{safety:{unresolved:true}}}],drills,'2026-11-08','Next','practice'), /follow-up/);
+});

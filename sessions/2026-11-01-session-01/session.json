@@ -9,23 +9,41 @@
     "rationale": "First planned session, anchored to the initial 117.2-yard total benchmark. No completed weekly session has been uploaded. Pressure shift and over-the-top remain hypotheses to test, not diagnoses from distance alone.",
     "focus": "7i only — Lead support, rhythm and comfortable contact",
     "cue": "Lead foot supports me as I turn through.",
-    "schedule": ["5–8 minutes: comfortable warm-up and 5 small no-ball swings.", "12–15 minutes: 5 staggered-stance rehearsals, 5 staggered shots, 5 normal half-shots; repeat the shot blocks once.", "10–15 minutes: 5 cue-free normal shots, then 5–10 comfortable normal shots. Do not chase maximum speed.", "Optional: play 3–5 holes using your usual routine. Record this separately from practice; driver is not coached in this phase.", "Afterward: upload captured data and optional video. No per-shot self-grading."],
+    "schedule": [
+      "5–8 minutes: comfortable warm-up and 5 small no-ball swings.",
+      "12–15 minutes: 5 staggered-stance rehearsals, 5 staggered shots, 5 normal half-shots; repeat the shot blocks once.",
+      "10–15 minutes: 5 cue-free normal shots, then 5–10 comfortable normal shots. Do not chase maximum speed.",
+      "Optional: play 3–5 holes using your usual routine. Record this separately from practice; driver is not coached in this phase.",
+      "Afterward: upload captured data and optional video. No per-shot self-grading."
+    ],
     "drills": [
       {
-        "id": "lead-support", "title": "Staggered stance — Learn lead-leg support",
+        "id": "lead-support",
+        "title": "Staggered stance — Learn lead-leg support",
         "purpose": "Purpose of this drill is to feel your lead foot and leg supporting you while you turn through a small swing. This teaches lead support, not the full timing of dynamic pressure shift.",
         "setup": "Lead foot means the foot nearer the target: left for a right-handed swing, right for a left-handed swing. Take normal 7i address with soft knees. Leave the lead foot in place; slide the trail foot half a shoe-length directly AWAY FROM THE BALL, behind the original heel line—not farther from the target. It is a small stagger, not a lunge. Keep the lead sole flat and trail toes down for balance, with the trail heel light if comfortable.",
-        "steps": ["Start without a ball and with plenty of club clearance. Rest most of your support on the lead leg without trying to measure a percentage or balancing on one leg.", "Take the hands back only to waist height, allowing the chest and club to move together. Do not sway onto the trail side.", "Make a gentle waist-high-to-waist-high swing. Feel the lead sole supporting you as chest, arms and club turn through together. Do not shove your hips toward the target, lock the knee, or hold the club behind you.", "Hold a comfortable finish for two seconds. Balance is useful feedback, not proof of correct sequencing."],
+        "steps": [
+          "Start without a ball and with plenty of club clearance. Rest most of your support on the lead leg without trying to measure a percentage or balancing on one leg.",
+          "Take the hands back only to waist height, allowing the chest and club to move together. Do not sway onto the trail side.",
+          "Make a gentle waist-high-to-waist-high swing. Feel the lead sole supporting you as chest, arms and club turn through together. Do not shove your hips toward the target, lock the knee, or hold the club behind you.",
+          "Hold a comfortable finish for two seconds. Balance is useful feedback, not proof of correct sequencing."
+        ],
         "feel": "My lead foot is a stable platform; I turn through it rather than falling backward.",
         "cue": "Lead foot supports me as I turn through.",
         "reps": "5 no-ball rehearsals, then 5 small 7i shots at about half effort if comfortable. Short drill-shot distances are expected.",
         "troubleshooting": "If you wobble, shorten the stagger and swing. If repeated heavy/thin contact continues, rehearse without a ball and use normal stance. Stop for knee, hip or back pain; never twist against a locked knee."
       },
       {
-        "id": "normal-transfer", "title": "Normal-stance transfer — Blend the feeling",
+        "id": "normal-transfer",
+        "title": "Normal-stance transfer — Blend the feeling",
         "purpose": "Purpose of this drill is to carry the lead-support sensation into your actual stance without consciously moving body parts one at a time.",
         "setup": "Restore your usual foot positions and normal 7i ball position. Keep a comfortable stance and soft knees. There is no stagger or step in this drill.",
-        "steps": ["Make one small rehearsal. Allow pressure to move naturally toward the trail side going back.", "As you change direction, feel the lead sole accept support and turn through in one continuous motion. Do not wait until after impact to get onto the lead side.", "Hit 5 waist-high-to-waist-high shots at comfortable effort using the same single cue. Do not perform a stop-start hips/chest/arms sequence.", "Repeat the staggered-stance and normal-stance blocks once. Finish with 5 normal-stance shots using a target and your usual routine, without a technical drill cue."],
+        "steps": [
+          "Make one small rehearsal. Allow pressure to move naturally toward the trail side going back.",
+          "As you change direction, feel the lead sole accept support and turn through in one continuous motion. Do not wait until after impact to get onto the lead side.",
+          "Hit 5 waist-high-to-waist-high shots at comfortable effort using the same single cue. Do not perform a stop-start hips/chest/arms sequence.",
+          "Repeat the staggered-stance and normal-stance blocks once. Finish with 5 normal-stance shots using a target and your usual routine, without a technical drill cue."
+        ],
         "feel": "The lead foot accepts support in transition; the swing flows through rather than becoming a series of commands.",
         "cue": "Lead foot supports me as I turn through.",
         "reps": "5 normal-stance half-shots after each staggered-stance block, then 5 cue-free normal shots. Label drill and normal blocks separately in the captured data.",
@@ -35,5 +53,271 @@
     "playThrough": "Optional 3–5 holes; compare normal 7i opportunities separately from drill shots. No scoring or short-game coaching required.",
     "videoNote": "Verified individual video recommendations are still pending. Search links are not specific video prescriptions."
   },
-  "result": null
+  "result": {
+    "recordedAt": "2026-11-01",
+    "source": "shot-csv",
+    "sevenTotal": 95.856,
+    "sevenCarry": 84.824,
+    "shotCount": 25,
+    "totalCount": 25,
+    "carryCount": 25,
+    "shots": [
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 17.9,
+        "total": 45.1
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 87.1,
+        "total": 94.0
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 88.8,
+        "total": 97.1
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 82.0,
+        "total": 91.0
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 72.5,
+        "total": 96.5
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 100.6,
+        "total": 112.2
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 102.0,
+        "total": 110.4
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 88.3,
+        "total": 95.4
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 101.1,
+        "total": 108.6
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 100.3,
+        "total": 108.7
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 62.4,
+        "total": 77.9
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 108.2,
+        "total": 117.6
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 95.3,
+        "total": 102.4
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 100.7,
+        "total": 106.8
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 56.1,
+        "total": 77.6
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 85.1,
+        "total": 95.9
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 95.3,
+        "total": 107.4
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 101.0,
+        "total": 110.9
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 87.8,
+        "total": 94.8
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 93.4,
+        "total": 102.2
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 85.5,
+        "total": 93.0
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 53.7,
+        "total": 73.5
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 82.3,
+        "total": 88.6
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 92.3,
+        "total": 98.9
+      },
+      {
+        "club": "7i",
+        "block": "normal",
+        "carry": 80.9,
+        "total": 89.9
+      },
+      {
+        "club": "7i",
+        "block": "play",
+        "carry": 103.5,
+        "total": 105.5
+      }
+    ],
+    "practiceMinutes": null,
+    "notes": "Freer exploratory I7 block only, shots 37–61. Not a standardized full-swing benchmark. Drill/headcover blocks are separate in the review; poor contact and lower-back discomfort reported.",
+    "comparability": "exploratory-not-standardized",
+    "playThrough": {
+      "holes": 8,
+      "notes": "Holes 1–8 represented, completion unconfirmed. 21 recorded shots; one I7 opportunity: 103.5 carry / 105.5 total. Player reports not hitting the ball well."
+    }
+  },
+  "review": {
+    "title": "Post-lesson review — What changed, what did not",
+    "status": "Practice and play reviewed; lower-back follow-up pending",
+    "safety": {
+      "unresolved": true,
+      "message": "Lower-back discomfort reported after practice; current symptoms are not yet clarified. Pause swing drills while symptoms persist. Do not force hip shifts or twist through pain. Seek clinical assessment if persistent, worsening or recurring; urgent evaluation for new leg weakness, saddle numbness or bladder/bowel changes."
+    },
+    "feedback": [
+      "the first set was staggered drill, second set was half swings non-staggered.  3rd set was trying to swing a bit freer, and 4th set was with the headcover.   .  This was the play, and not so great, I really wan'st hitting the ball well today.  Also make sure you are saving these files and building a post lesson analysis that is persisted so we can continue to work twith this",
+      "so first the practice csv playershots just uploaded.  The everytime I switched task, I would hti a shot or two with the club set on a different club.   So I first ran the staggered feel, and it was fine, I did feel the shift in to the hip, but it didn't change much, balance was okay , but it wasn't a full follow through, the club ended up pointed to the target (hip to hip height).   I felt it, but not much here.  I then switched to i8, then back to i7 and then did the same thing with a more normal setup.   I then finsihed that up, decided to hit a few 3 hybrids, and then went back to the i7 but this time tried with  club cover just outside ball to prevent the over the top, and I think this worked some too... this was just more discovery.  As a note, my lower back feels a little weird.  After this  I will upload the player shots, and we can do some more analysis together"
+    ],
+    "findings": [
+      "Hip-to-hip finish matched the small-swing prescription. The purpose was lead support, not immediate distance or path improvement. Feeling support and staying balanced does not prove pressure timing.",
+      "Staggered and non-staggered half-swings both remained entirely O-I in the device path field. This session does not support claiming a path fix from those drills. Mean absolute path was 9.15 degrees and 13.59 degrees respectively.",
+      "The freer block increased ball speed and distance versus half-swings, but was exploratory: its 95.86-yard average total is not a standardized full-swing result. Do not label its difference from the baseline a regression.",
+      "The headcover block changed the reported path on four consecutive shots, 78–81 (I-O), before returning to O-I on 82–84. Mean absolute path remained 7.37 degrees. Signed averaging would hide two-sided variation. Face control and distance were not consistently improved; this is an experiment, not a proven correction.",
+      "Play has only one I7 opportunity, hole 2/global shot 7: 103.5 yd carry, 105.5 yd total, 80.1 mph ball speed, 6.0 degrees O-I, 6.7 degrees open face-to-path, and 9.1 yd right offline. One shot cannot establish carryover or a reliable play average.",
+      "Play contains 21 recorded shots across holes 1–8, with global-number gaps through 34. Do not reconstruct scores, penalties, putts, or missing swings. Hole 8 is represented, not proven complete.",
+      "Club speed and smash factor are unavailable (zero) throughout both exports. Six play rows show all-zero AoA/path/face/loft packets: these are not evidence of neutral delivery. CSV path cannot directly establish foot pressure or full-body sequencing; confirm handedness and device before directional interpretation.",
+      "All raw rows and mishits are retained. Marker clubs identify task boundaries, not necessarily actual clubs used. Driver and short-game coaching remain outside scope. No injury diagnosis is made from the exports."
+    ],
+    "nextDiscussion": [
+      "Clarify location, severity and persistence of the lower-back sensation before another active drill plan.",
+      "Confirm actual club use versus marker settings, handedness, device setup and effort/swing length. Capture swing video only when comfortable.",
+      "Keep the lead-support exercise and headcover-path experiment separate. Once comfortable, assess repeatable path and face control rather than chasing a signed path mean or longest shots."
+    ],
+    "blocks": [
+      {
+        "title": "Staggered hip-to-hip",
+        "start": 6,
+        "end": 20,
+        "n": 15,
+        "carry": 47.17333333333333,
+        "total": 64.75333333333333,
+        "ballSpeed": 56.03333333333333,
+        "outsideInCount": 15,
+        "insideOutCount": 0
+      },
+      {
+        "title": "Non-staggered half-swings",
+        "start": 22,
+        "end": 35,
+        "n": 14,
+        "carry": 44.628571428571426,
+        "total": 62.371428571428574,
+        "ballSpeed": 55.25714285714285,
+        "outsideInCount": 14,
+        "insideOutCount": 0
+      },
+      {
+        "title": "Freer swing experiment",
+        "start": 37,
+        "end": 61,
+        "n": 25,
+        "carry": 84.824,
+        "total": 95.856,
+        "ballSpeed": 74.704,
+        "outsideInCount": 24,
+        "insideOutCount": 1
+      },
+      {
+        "title": "Headcover experiment",
+        "start": 75,
+        "end": 84,
+        "n": 10,
+        "carry": 61.92,
+        "total": 75.22,
+        "ballSpeed": 61.27,
+        "outsideInCount": 6,
+        "insideOutCount": 4
+      }
+    ],
+    "playSeven": {
+      "n": 1,
+      "carry": 103.5,
+      "total": 105.5,
+      "ballSpeed": 80.1,
+      "outsideInCount": 1,
+      "insideOutCount": 0
+    },
+    "sources": [
+      {
+        "path": "sources/practice-original.csv",
+        "rows": 84,
+        "sha256": "06bb09f9f07e44ae691b8766880b694321effbd100bdeec9d7bc2ec3a11807c6"
+      },
+      {
+        "path": "sources/play-original.csv",
+        "rows": 21,
+        "sha256": "e64c819fdfcae46b3851b61c8838d0dfdec409368d04e5779347ac5ee07891ca"
+      }
+    ]
+  }
 }

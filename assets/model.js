@@ -28,6 +28,9 @@ export function validateSession(s) {
   return s;
 }
 export function createPlan(sessions, drills, date, title, slug) {
+  if (completed(sessions).some(s => s.date < date && s.review?.safety?.unresolved)) {
+    throw new Error('Lower-back follow-up is pending. Clarify symptoms in the workspace before generating another active swing-drill plan.');
+  }
   const prior = completed(sessions).filter(s => s.date < date);
   const last = prior.at(-1);
   const earlier = mean(prior.slice(-4, -1).map(s => s.result.sevenTotal));

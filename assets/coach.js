@@ -45,7 +45,7 @@ function metrics() {
   const last = completed(sessions).filter(s => s.result.sevenTotal !== null).at(-1);
   const total = last?.result.sevenTotal ?? null;
   return `<div class="grid">${[
-    ['Starting benchmark', `${fmt(archive.baseline.totalYards)} yd`], ['Latest session total', total === null ? 'Awaiting data' : `${fmt(total)} yd`],
+    ['Starting benchmark', `${fmt(archive.baseline.totalYards)} yd`], [last?.result.comparability === 'exploratory-not-standardized' ? 'Latest exploratory block (not benchmark)' : 'Latest session total', total === null ? 'Awaiting data' : `${fmt(total)} yd`],
     ['Distance goal', `${archive.goal.totalYards} yd`], ['Gap to goal', total === null ? 'Awaiting data' : `${fmt(Math.max(0, archive.goal.totalYards - total))} yd`]
   ].map(([k,v]) => `<div class="card"><span class="label">${k}</span><span class="metric">${v}</span></div>`).join('')}</div>`;
 }
@@ -68,6 +68,12 @@ function renderSession() {
   app.innerHTML = `<span class="eyebrow">${esc(s.date)}</span><h1>${esc(s.title)}</h1>${badge(s)}<div class="actions" style="margin-top:18px">${link(`coach/import.html?id=${encodeURIComponent(s.id)}`,'Record / update results','button')}<button id="export" class="secondary">Download session bundle</button><button id="print" class="secondary">Print plan</button></div>
     <section class="card" style="margin-top:24px"><h2>The saved plan</h2><p><strong>Focus:</strong> ${esc(s.plan.focus)}</p><p><strong>Why this plan:</strong> ${esc(s.plan.rationale)}</p><p><strong>Based on:</strong> ${s.plan.basedOnSessionId ? link(`coach/session.html?id=${encodeURIComponent(s.plan.basedOnSessionId)}`,s.plan.basedOnSessionId) : 'Initial baseline; no earlier completed session'}</p><ol>${s.plan.schedule.map(v => `<li>${esc(v)}</li>`).join('')}</ol><p><strong>Optional play-through:</strong> ${esc(s.plan.playThrough)}</p></section>
     ${s.plan.drills.map(drillHtml).join('')}<section class="card"><h2>Results</h2>${s.result ? `<div class="grid"><p>Total: <strong>${fmt(s.result.sevenTotal)} yd</strong></p><p>Carry: <strong>${fmt(s.result.sevenCarry)} yd</strong></p><p>Normal 7i sample: <strong>${s.result.shotCount ?? 'not supplied'}</strong></p></div><p>Source: ${esc(s.result.source)}. Total observations: ${s.result.totalCount ?? 'unknown'}; carry observations: ${s.result.carryCount ?? 'unknown'}.</p><p>${esc(s.result.notes)}</p><p>Play-through: ${esc(s.result.playThrough?.holes ?? 0)} holes. ${esc(s.result.playThrough?.notes)}</p>` : '<p>Planned only. No actual session results have been uploaded.</p>'}</section><details class="card"><summary>Video reference status</summary><p>${esc(s.plan.videoNote)}</p><p><a href="https://www.youtube.com/results?search_query=golf+staggered+stance+lead+leg+drill" target="_blank" rel="noreferrer">Search for a staggered-stance demonstration</a> (search only, not a verified video).</p></details>${s.localDraft ? publishNotice() : ''}`;
+  if (s.review) {
+    const r = s.review;
+    const section = document.createElement('section'); section.className = 'card';
+    section.innerHTML = `<h2>${esc(r.title)}</h2><p>${esc(r.status)}</p><div class="notice"><strong>Comfort before progression:</strong> ${esc(r.safety.message)}</div><h3>Your feedback</h3>${r.feedback.map(v=>`<p>${esc(v)}</p>`).join('')}<div class="table-wrap"><table><thead><tr><th>Practice task</th><th>Shots</th><th>Carry</th><th>Total</th><th>O-I / I-O</th></tr></thead><tbody>${r.blocks.map(b=>`<tr><td>${esc(b.title)} (${b.start}–${b.end})</td><td>${b.n}</td><td>${fmt(b.carry)}</td><td>${fmt(b.total)}</td><td>${b.outsideInCount} / ${b.insideOutCount}</td></tr>`).join('')}</tbody></table></div><h3>Evidence and interpretation</h3><ul>${r.findings.map(v=>`<li>${esc(v)}</li>`).join('')}</ul><h3>Next discussion</h3><ul>${r.nextDiscussion.map(v=>`<li>${esc(v)}</li>`).join('')}</ul><p class="small">Original CSVs preserved in the repository with SHA-256 hashes; excluded from the Pages artifact. The main result uses only the freer experimental block, not a standardized full-swing test.</p>`;
+    document.querySelector('#export').closest('.actions').after(section);
+  }
   document.querySelector('#export').onclick = () => download(s);
   document.querySelector('#print').onclick = () => window.print();
 }
