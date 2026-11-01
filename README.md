@@ -8,13 +8,31 @@ Open [the home page](index.html) locally over HTTP or at **https://jb201.github.
 - [Plan](coach/plan.html): generate a saved next-session snapshot from the latest earlier completed session.
 - [Record results](coach/import.html): import measured shot CSV or enter an uploaded session summary; no self-grading.
 - [Progress](coach/progress.html): normal 7i session averages, sample sizes, and goal gap.
-- [Session 01](coach/session.html?id=2026-11-01-session-01): the first plan, not a completed session.
+- [Session 01](coach/session.html?id=2026-11-01-session-01): the saved first plan, actual practice/play results, and post-lesson review.
+- [Research & History](coach/library.html): original benchmark dashboard, diagrams, workbooks, sources and prototype history.
 
 The authoritative history is in Git, not localStorage. Each session lives in **sessions/YYYY-MM-DD-slug/session.json** with its dated plan, exact drill instructions, rationale, prior-session reference, and optional results. The manifest is [data/archive.json](data/archive.json); the reusable drill library is [data/drills.json](data/drills.json). Plans copy the library so later instruction changes do not rewrite earlier plans.
 
 Phone/browser edits are explicitly labeled **local drafts**. Download a session bundle and return it to the workspace for validation and commit; only a push publishes it across devices. GitHub Pages cannot write to this repo. See [the weekly workflow](docs/session-workflow.md) for publication, CSV format, and limitations.
 
-The Pages workflow publishes only the journal, shared assets, and session archive. Root spreadsheets, WordPress export, and swing video are not in the Pages artifact (they still remain in the repository and are public if the repository is public). Set **Settings → Pages → Source → GitHub Actions** once. The existing root coaching filenames are compatibility redirects for local bookmarks; use the structured routes above on the published site.
+The Pages workflow publishes the journal, shared assets, session JSON, and selected original research HTML pages. Raw session exports, provisional notes, workbooks, WordPress export, video and old prototypes stay outside the Pages artifact (they remain in Git and are public if the repository is public). Set **Settings → Pages → Source → GitHub Actions** once. Old root HTML bookmarks were retired; use the journal and library instead.
+
+## Folder guide
+
+| Folder | Purpose |
+|---|---|
+| [coach](coach/) | Current planning, results, progress, session and library routes |
+| [assets](assets/) | Shared application code and styles |
+| [data](data/) | Canonical session index and current drill library |
+| [sessions](sessions/) | Dated plans, results, reviews, original CSVs and session-specific notes |
+| [research](research/README.md) | Original analyses, spreadsheets, diagrams, source export and baseline video |
+| [knowledge](knowledge/) | Reusable coaching principles, sources and policies |
+| [templates](templates/README.md) | Historical examples and worksheets, never real results |
+| [legacy](legacy/README.md) | Superseded app source, preserved for history |
+| [docs](docs/) | Workflow and organization documentation |
+| [scripts](scripts/) / [tests](tests/) | Publication, analysis and verification tooling |
+
+Keep only the home page, README, package configuration and repository configuration at the root. See [filing rules and move history](docs/workspace-organization.md).
 
 The sections below describe the original baseline and research context, not a current drill prescription.
 
@@ -38,10 +56,10 @@ The previously vague headcover prescription has been withdrawn. Current plans us
 
 ## Primary data sources in this workspace
 
-- golf_benchmark_comparison.html
-- headcover_drill_diagram.html
-- theiffylie.WordPress.2026-11-01.xml
-- video file: 20261031140158_golffix_iron_side_01.mp4
+- [Original benchmark dashboard](research/pages/golf_benchmark_comparison.html)
+- [Historical headcover diagram](research/pages/headcover_drill_diagram.html)
+- [WordPress source export](research/sources/theiffylie.WordPress.2026-11-01.xml)
+- [Original swing video](research/videos/20261031140158_golffix_iron_side_01.mp4)
 
 ## Baseline from the benchmark dashboard
 

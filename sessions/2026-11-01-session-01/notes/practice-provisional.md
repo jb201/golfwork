@@ -1,6 +1,6 @@
 # Session 01 — Practice review in progress
 
-Date: 2026-11-01. This document preserves the initial provisional review. It is superseded by the confirmed post-lesson review in [the saved session](../sessions/2026-11-01-session-01/session.json) and [review narrative](../sessions/2026-11-01-session-01/review.json). Both original exports are now saved in the session sources directory. Confirmed blocks: 6–20 staggered; 22–35 non-staggered half-swings; 37–61 freer experiment; 75–84 headcover experiment. Play contains one I7 shot. Lower-back follow-up remains pending.
+Date: 2026-11-01. This document preserves the initial provisional review. It is superseded by the confirmed post-lesson review in [the saved session](../session.json) and [review narrative](../review.json). Both original exports are now saved in the session sources directory. Confirmed blocks: 6–20 staggered; 22–35 non-staggered half-swings; 37–61 freer experiment; 75–84 headcover experiment. Play contains one I7 shot. Lower-back follow-up remains pending.
 
 ## Player feedback (verbatim)
 

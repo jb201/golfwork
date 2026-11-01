@@ -31,12 +31,7 @@ jobs:
           python scripts/publish_session.py --validate
       - uses: actions/configure-pages@v5
       - name: Stage only the public journal
-        run: |
-          mkdir -p _site
-          cp index.html _site/
-          cp -r assets coach data sessions _site/
-          find _site/sessions -type d -name sources -prune -exec rm -rf {} +
-          touch _site/.nojekyll
+        run: python scripts/stage_pages.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

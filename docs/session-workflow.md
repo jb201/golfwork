@@ -7,6 +7,7 @@
 - `/coach/session.html?id=YYYY-MM-DD-slug` — that session’s saved plan and results.
 - `/coach/import.html` — attach captured data to a saved plan or restore a downloaded bundle.
 - `/coach/progress.html` — full completed-session table and trend.
+- `/coach/library.html` — original research, reference diagrams and repository history.
 - `data/archive.json` — canonical session index, initial baseline, and goal.
 - `data/drills.json` — current drill library; every drill includes purpose, setup, steps, feel, repetitions, and troubleshooting.
 - `sessions/YYYY-MM-DD-slug/session.json` — canonical plan snapshot and measured result, if recorded.
@@ -59,7 +60,7 @@ The earlier apps used `golfCoachAppHistory` and `golfSessionHistory`. Those keys
 
 ## GitHub Pages setup and privacy
 
-In repository Settings → Pages, set Source to **GitHub Actions**. The workflow stages only `index.html`, `assets/`, `coach/`, `data/`, and `sessions/`. It does not serve root research spreadsheets, video, export, legacy pages, scripts or tests. Standard Pages sites are public: session notes and normalized shots in the archive will be public. Private repository support depends on the GitHub plan. A public repository exposes its committed source assets regardless of the selective Pages artifact.
+In repository Settings → Pages, set Source to **GitHub Actions**. The workflow stages `index.html`, `assets/`, `coach/`, `data/`, session JSON, and `research/pages/`. Raw session `sources/` and provisional `notes/` folders are removed from the artifact. It does not serve research workbooks, video, WordPress export, legacy pages, templates, scripts or tests. Standard Pages sites are public: feedback and normalized shots embedded in session JSON will be public. Private repository support depends on the GitHub plan. A public repository exposes its committed source assets regardless of the selective Pages artifact.
 
 Do not put tokens, credentials, or private observations in published session bundles. No login or backend is supplied by this static app.
 
@@ -70,4 +71,4 @@ Do not put tokens, credentials, or private observations in published session bun
 - `node --test tests/model.test.mjs` checks plan selection, snapshots and CSV aggregation.
 - Serve locally over HTTP (e.g. the existing Python server); direct file URLs cannot fetch the JSON archive.
 
-The initial 117.2-yard total / 109.7-yard carry benchmark is context, not a plotted weekly result. The example root CSV is never seeded as a completed session. Total distance is influenced by conditions and launch-monitor settings, and does not directly measure pressure shift or body sequencing.
+The initial 117.2-yard total / 109.7-yard carry benchmark is context, not a plotted weekly result. The historical CSV example in `templates/` is never seeded as a completed session. Total distance is influenced by conditions and launch-monitor settings, and does not directly measure pressure shift or body sequencing.
