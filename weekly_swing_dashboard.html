@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Golf weekly swing dashboard</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #183b40;
+      --muted: #52656c;
+      --line: #dfe8e4;
+      --green: #0d8a67;
+      --blue: #245bd8;
+      --amber: #c8891d;
+      --red: #bc5a4a;
+      --shadow: rgba(23, 47, 53, 0.04);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 1200px; margin: 0 auto; padding: 32px 20px 64px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 40px); }
+    p { margin: 0 0 16px; color: var(--muted); }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none; color: var(--ink); background: #eef3f1; border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 14px; font-weight: 600;
+    }
+    .cards {
+      display: grid; grid-template-columns: repeat(4, minmax(180px, 1fr)); gap: 18px; margin-bottom: 20px;
+    }
+    .card {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+      box-shadow: 0 1px 2px var(--shadow);
+    }
+    .card .label {
+      color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700;
+    }
+    .card .value {
+      display: block; font-size: clamp(24px, 3vw, 34px); font-weight: 800; margin-top: 8px;
+    }
+    .card .small {
+      display: block; margin-top: 8px; color: var(--muted); font-size: 13px;
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+      box-shadow: 0 1px 2px var(--shadow); margin-top: 20px;
+    }
+    .row {
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px;
+    }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    th, td {
+      padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top;
+    }
+    thead th {
+      background: #f5f8f7; font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted);
+    }
+    .trend-up { color: var(--green); font-weight: 700; }
+    .trend-down { color: var(--red); font-weight: 700; }
+    .chart-wrap {
+      width: 100%; height: 260px; border: 1px solid var(--line); border-radius: 12px; background: linear-gradient(180deg, #f7faf9 0%, white 100%);
+      padding: 12px;
+    }
+    svg { width: 100%; height: 100%; display: block; }
+    .legend {
+      display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; color: var(--muted); font-size: 13px;
+    }
+    .swatch {
+      display: inline-block; width: 12px; height: 12px; border-radius: 4px; margin-right: 6px; vertical-align: middle;
+    }
+    .btn-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 12px; }
+    button {
+      border: 0; border-radius: 10px; background: var(--blue); color: white; padding: 10px 16px; font-weight: 700; cursor: pointer;
+    }
+    .secondary {
+      background: #eff3f1; color: var(--ink); border: 1px solid var(--line);
+    }
+    .empty {
+      color: var(--muted); padding: 18px 0; font-style: italic;
+    }
+    @media (max-width: 900px) {
+      .cards { grid-template-columns: repeat(2, minmax(160px, 1fr)); }
+      .row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .cards { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Golf weekly swing dashboard</h1>
+        <p>Track 7-iron and driver patterns from each session, then compare the result against the real baseline.</p>
+      </div>
+      <div class="nav">
+        <a href="golf_coach_app.html">App</a>
+        <a href="weekly_swing_dashboard.html">Dashboard</a>
+        <a href="session_upload.html">Upload</a>
+        <a href="session_brief.html">Session Brief</a>
+        <a href="session_planner.html">Planner</a>
+      </div>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <div class="label">Current 7i avg total</div>
+        <span class="value" id="current7i">—</span>
+        <span class="small" id="sevenMeta">Baseline: 117.2 yd</span>
+      </div>
+      <div class="card">
+        <div class="label">Current driver avg total</div>
+        <span class="value" id="currentDriver">—</span>
+        <span class="small" id="driverMeta">Baseline not yet set</span>
+      </div>
+      <div class="card">
+        <div class="label">7i progress to goal</div>
+        <span class="value" id="goalGap">—</span>
+        <span class="small">Target: 145+ yards total</span>
+      </div>
+      <div class="card">
+        <div class="label">Sequencing trend</div>
+        <span class="value" id="seqTrend">—</span>
+        <span class="small" id="seqMeta">Based on session scores</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="btn-row">
+        <button id="reloadBtn">Refresh dashboard</button>
+        <button id="clearBtn" class="secondary">Clear stored data</button>
+      </div>
+      <div class="row">
+        <div>
+          <h2>Session trend</h2>
+          <div class="chart-wrap">
+            <svg id="trendChart" viewBox="0 0 760 220" role="img" aria-label="Weekly trend chart"></svg>
+          </div>
+          <div class="legend">
+            <span><i class="swatch" style="background:#245bd8"></i>7i total</span>
+            <span><i class="swatch" style="background:#0d8a67"></i>Driver total</span>
+            <span><i class="swatch" style="background:#c8891d"></i>Target line</span>
+          </div>
+        </div>
+        <div>
+          <h2>Recent sessions</h2>
+          <div id="recentTable"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'golfSessionHistory';
+    const BASELINE = {
+      sevenTotal: 117.2,
+      targetSevenTotal: 145,
+      targetDriver: 195
+    };
+
+    function getSessions() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function toNum(value) {
+      if (value === '' || value === null || value === undefined) return null;
+      const n = Number(value);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmt(value, digits = 1) {
+      if (value === null || value === undefined || Number.isNaN(value)) return '—';
+      return Number(value).toFixed(digits);
+    }
+
+    function average(arr) {
+      const valid = arr.filter(v => v !== null && v !== undefined && !Number.isNaN(v));
+      if (!valid.length) return null;
+      return valid.reduce((sum, v) => sum + v, 0) / valid.length;
+    }
+
+    function getLatestValue(sessions, field) {
+      if (!sessions.length) return null;
+      const values = sessions.map(s => toNum(s[field])).filter(v => v !== null);
+      if (!values.length) return null;
+      return values[values.length - 1];
+    }
+
+    function computeSummary(sessions) {
+      const seven = sessions.map(s => toNum(s.sevenTotal)).filter(v => v !== null);
+      const driver = sessions.map(s => toNum(s.driverTotal)).filter(v => v !== null);
+      const seq = sessions.map(s => toNum(s.sequencingScore)).filter(v => v !== null);
+      const targetGap = seven.length ? BASELINE.targetSevenTotal - average(seven) : null;
+      return {
+        sevenAvg: average(seven),
+        driverAvg: average(driver),
+        sequencingAvg: average(seq),
+        targetGap,
+      };
+    }
+
+    function renderSummary() {
+      const sessions = getSessions().filter(s => s.date || s.sessionName);
+      const summary = computeSummary(sessions);
+
+      document.getElementById('current7i').textContent = summary.sevenAvg === null ? '—' : fmt(summary.sevenAvg, 1) + ' yd';
+      document.getElementById('sevenMeta').textContent = 'Baseline: ' + fmt(BASELINE.sevenTotal, 1) + ' yd';
+
+      document.getElementById('currentDriver').textContent = summary.driverAvg === null ? '—' : fmt(summary.driverAvg, 1) + ' yd';
+      document.getElementById('driverMeta').textContent = summary.driverAvg === null ? 'Baseline not yet set' : 'Driver trend loaded';
+
+      const gapText = summary.targetGap === null ? '—' : (summary.targetGap > 0 ? '+' + fmt(summary.targetGap, 1) + ' yd' : fmt(summary.targetGap, 1) + ' yd');
+      document.getElementById('goalGap').textContent = gapText;
+
+      document.getElementById('seqTrend').textContent = summary.sequencingAvg === null ? '—' : fmt(summary.sequencingAvg, 1) + '/10';
+      document.getElementById('seqMeta').textContent = summary.sequencingAvg === null ? 'No session ratings yet' : 'Average across recent sessions';
+    }
+
+    function renderRecentTable() {
+      const sessions = getSessions().filter(s => s.date || s.sessionName).slice().reverse();
+      const table = document.getElementById('recentTable');
+
+      if (!sessions.length) {
+        table.innerHTML = '<div class="empty">No saved sessions yet. Upload a session from the upload page.</div>';
+        return;
+      }
+
+      let html = '<table><thead><tr><th>Date</th><th>Session</th><th>7i total</th><th>Driver total</th><th>Seq</th><th>Notes</th></tr></thead><tbody>';
+      sessions.slice(0, 8).forEach((session) => {
+        html += '<tr>' +
+          '<td>' + (session.date || '—') + '</td>' +
+          '<td>' + (session.sessionName || '—') + '</td>' +
+          '<td>' + fmt(toNum(session.sevenTotal), 1) + '</td>' +
+          '<td>' + fmt(toNum(session.driverTotal), 1) + '</td>' +
+          '<td>' + fmt(toNum(session.sequencingScore), 1) + '</td>' +
+          '<td>' + (session.notes ? session.notes.slice(0, 80) : '—') + '</td>' +
+          '</tr>';
+      });
+      html += '</tbody></table>';
+      table.innerHTML = html;
+    }
+
+    function renderChart() {
+      const sessions = getSessions().filter(s => s.date || s.sessionName).slice().reverse();
+      const svg = document.getElementById('trendChart');
+      if (!sessions.length) {
+        svg.innerHTML = '<text x="50%" y="50%" text-anchor="middle" fill="#52656c" font-size="18">No data yet</text>';
+        return;
+      }
+
+      const width = 760, height = 220, padding = 28;
+      const sevenValues = sessions.map(s => toNum(s.sevenTotal)).filter(v => v !== null);
+      const driverValues = sessions.map(s => toNum(s.driverTotal)).filter(v => v !== null);
+      const maxValue = Math.max(150, ...sevenValues, ...driverValues, BASELINE.targetSevenTotal, BASELINE.targetDriver);
+      const minValue = Math.min(80, ...sevenValues, ...driverValues);
+
+      const xForIndex = index => padding + (index * (width - padding * 2)) / Math.max(sessions.length - 1, 1);
+      const yForValue = value => height - padding - ((value - minValue) / Math.max(maxValue - minValue, 1)) * (height - padding * 2);
+
+      const targetY = yForValue(BASELINE.targetSevenTotal);
+      const targetLine = `<line x1="${padding}" x2="${width - padding}" y1="${targetY}" y2="${targetY}" stroke="#c8891d" stroke-dasharray="6 6" stroke-width="2" />`;
+
+      const sevenPoints = sessions.map((session, index) => {
+        const value = toNum(session.sevenTotal);
+        if (value === null) return null;
+        return `${xForIndex(index)},${yForValue(value)}`;
+      }).filter(Boolean).join(' ');
+
+      const driverPoints = sessions.map((session, index) => {
+        const value = toNum(session.driverTotal);
+        if (value === null) return null;
+        return `${xForIndex(index)},${yForValue(value)}`;
+      }).filter(Boolean).join(' ');
+
+      const gridLines = Array.from({ length: 5 }, (_, i) => {
+        const v = minValue + ((maxValue - minValue) / 4) * i;
+        const y = yForValue(v);
+        return `<line x1="${padding}" x2="${width - padding}" y1="${y}" y2="${y}" stroke="#edf1ef" stroke-width="1" />` +
+          `<text x="4" y="${y + 4}" fill="#52656c" font-size="11">${Math.round(v)}</text>`;
+      }).join('');
+
+      const labels = sessions.map((session, index) => {
+        const x = xForIndex(index);
+        const label = session.date ? new Date(session.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : `S${index + 1}`;
+        return `<text x="${x}" y="${height - 6}" text-anchor="middle" fill="#52656c" font-size="10">${label}</text>`;
+      }).join('');
+
+      svg.innerHTML = `
+        ${gridLines}
+        ${targetLine}
+        <polyline fill="none" stroke="#245bd8" stroke-width="3" points="${sevenPoints}" />
+        <polyline fill="none" stroke="#0d8a67" stroke-width="3" points="${driverPoints}" />
+        ${labels}
+      `;
+    }
+
+    function render() {
+      renderSummary();
+      renderRecentTable();
+      renderChart();
+    }
+
+    document.getElementById('reloadBtn').addEventListener('click', render);
+    document.getElementById('clearBtn').addEventListener('click', function () {
+      localStorage.removeItem(STORAGE_KEY);
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>

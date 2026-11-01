@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Session Brief</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #183b40;
+      --muted: #52656c;
+      --line: #dfe8e4;
+      --green: #0d8a67;
+      --blue: #245bd8;
+      --amber: #c8891d;
+      --red: #bc5a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 40px); }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    p { margin: 0 0 14px; color: var(--muted); }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none; color: var(--ink); background: #eef3f1; border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 14px; font-weight: 600;
+    }
+    .layout {
+      display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px;
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 20px; box-shadow: 0 1px 2px rgba(24,59,64,0.04);
+    }
+    .two-up {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    }
+    label {
+      display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;
+    }
+    input, textarea {
+      width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; font: inherit; background: white; color: var(--ink);
+    }
+    textarea {
+      min-height: 110px; resize: vertical;
+    }
+    .actions {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px;
+    }
+    button {
+      border: 0; border-radius: 10px; background: var(--blue); color: white; padding: 11px 16px; font-weight: 700; cursor: pointer;
+    }
+    .secondary {
+      background: #eff3f1; color: var(--ink); border: 1px solid var(--line);
+    }
+    .badge {
+      display: inline-block; padding: 5px 9px; border-radius: 999px; font-size: 12px; font-weight: 700; margin-bottom: 8px;
+    }
+    .green { background: #eef9f5; color: var(--green); }
+    .amber { background: #fff5e6; color: var(--amber); }
+    .red { background: #fdf0ee; color: var(--red); }
+    .brief-card {
+      background: linear-gradient(180deg, #f9fbfa 0%, #ffffff 100%);
+      border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+    }
+    ul {
+      margin: 0; padding-left: 18px; color: var(--muted);
+    }
+    li + li { margin-top: 8px; }
+    .status {
+      min-height: 24px; font-weight: 700; color: var(--green);
+    }
+    @media (max-width: 880px) {
+      .layout, .two-up { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Session brief</h1>
+        <p>Today’s focus, the goal, and the things to watch during the swing.</p>
+      </div>
+      <div class="nav">
+        <a href="golf_coach_app.html">App</a>
+        <a href="weekly_swing_dashboard.html">Dashboard</a>
+        <a href="session_upload.html">Upload</a>
+        <a href="session_brief.html">Session Brief</a>
+        <a href="session_planner.html">Planner</a>
+      </div>
+    </div>
+
+    <section class="layout">
+      <div class="panel">
+        <h2>Today’s working plan</h2>
+        <form id="briefForm">
+          <div class="two-up">
+            <div>
+              <label for="sessionDate">Date</label>
+              <input id="sessionDate" type="date" required />
+            </div>
+            <div>
+              <label for="sessionLabel">Session label</label>
+              <input id="sessionLabel" type="text" placeholder="e.g. Range block / first 9 / mixed session" />
+            </div>
+          </div>
+
+          <div>
+            <label for="mainFocus">What we are working on today</label>
+            <textarea id="mainFocus" placeholder="Example: sequencing and pressure shift, keeping the club inside, staying athletic through impact."></textarea>
+          </div>
+
+          <div>
+            <label for="goal">Session goal</label>
+            <textarea id="goal" placeholder="Example: finish the session with 7i total averaging 130+ and a more natural, connected strike."></textarea>
+          </div>
+
+          <div>
+            <label for="watchFor">What to look for</label>
+            <textarea id="watchFor" placeholder="Example: weight transfer into the lead side, stable head, club staying in sequence, solid contact without forcing the swing."></textarea>
+          </div>
+
+          <div>
+            <label for="warningSigns">Warning signs</label>
+            <textarea id="warningSigns" placeholder="Example: over-the-top move, early extension, quick arms, losing pressure shift, casting, or trying to hit too hard."></textarea>
+          </div>
+
+          <div>
+            <label for="videoRef">Watch this video to lock in the feel</label>
+            <textarea id="videoRef" placeholder="Example: Danny Maude sequencing/transition video or a headcover drill reference. Watch the section on pressure shift and transition, then apply the feel immediately."></textarea>
+          </div>
+
+          <div>
+            <label for="playThrough">Optional play-through check</label>
+            <textarea id="playThrough" placeholder="Example: Play 3-5 holes and look for carryover. If the pressure shift and sequencing hold up under play, keep the cue. If it regresses, revert to the simpler 7i drill block."></textarea>
+          </div>
+
+          <div>
+            <label for="success">Success looks like</label>
+            <textarea id="success" placeholder="Example: feel freer, sequence holds, strike improves, and the carryover into play is visible."></textarea>
+          </div>
+
+          <div>
+            <label for="metrics">Session 1 metric check</label>
+            <textarea id="metrics" placeholder="Example: Record contact quality 1-5, transition feel smooth vs rushed, balance at finish, and 7i carry trend. If 2+ shots feel rushed or miss-contact, slow down and reset."></textarea>
+          </div>
+
+          <div class="actions">
+            <button type="submit">Save brief</button>
+            <button type="button" class="secondary" id="loadExample">Load example</button>
+          </div>
+          <div class="status" id="status"></div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="brief-card">
+          <div class="badge green">Session brief preview</div>
+          <h2 id="previewTitle">Today’s session</h2>
+          <p><strong>Date:</strong> <span id="previewDate">—</span></p>
+          <p><strong>Session:</strong> <span id="previewLabel">—</span></p>
+
+          <div style="margin-top: 18px;">
+            <div class="badge amber">Working on today</div>
+            <p id="previewFocus">—</p>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge green">Goal</div>
+            <p id="previewGoal">—</p>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge green">What to look for</div>
+            <ul id="previewWatch"></ul>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge red">Warning signs</div>
+            <ul id="previewWarnings"></ul>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge amber">Watch this video</div>
+            <p id="previewVideo">—</p>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge green">Optional play-through</div>
+            <p id="previewPlayThrough">—</p>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge green">Session 1 metric check</div>
+            <p id="previewMetrics">—</p>
+          </div>
+
+          <div style="margin-top: 18px;">
+            <div class="badge amber">Success looks like</div>
+            <p id="previewSuccess">—</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'golfSessionBrief';
+
+    const defaultValues = {
+      sessionDate: '',
+      sessionLabel: 'Range block',
+      mainFocus: 'Sequencing and pressure shift. Keep the move connected, let the lower body start the swing, and avoid a quick, over-the-top arm move.',
+      goal: 'Build a freer, more connected swing and finish the session with a stronger 7i average without forcing power.',
+      watchFor: 'Pressure shift into the lead side, good sequence from lower body to torso to arms, stable head, solid contact, and a swing that feels athletic rather than forced.',
+      warningSigns: 'Getting stuck on the backswing, casting, quick arms, early extension, sliding, or losing the sequence and trying to smash the ball.',
+      videoRef: 'Danny Maude sequencing / transition video or a headcover drill reference. Watch the part on pressure shift and transition, then repeat the feel for the first 10 reps.',
+      playThrough: 'Play 3-5 holes and look for carryover. If the pressure shift and sequencing hold up under play, keep the cue. If it regresses, revert to the simpler 7i drill block.',
+      metrics: 'Record contact quality 1-5, transition feel smooth or rushed, balance at finish, and 7i carry trend. If 2 or more shots in a set feel rushed or miss-contact, slow down and reset.',
+      success: 'The swing feels more connected, the strike is cleaner, and the pattern carries into actual play without the same tension or manipulation.'
+    };
+
+    function loadBrief() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return { ...defaultValues };
+      try {
+        return { ...defaultValues, ...JSON.parse(raw) };
+      } catch (error) {
+        return { ...defaultValues };
+      }
+    }
+
+    function saveBrief(data) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    }
+
+    function splitLines(value) {
+      return (value || '').split(/\n|•|;|\|/).map(v => v.trim()).filter(Boolean);
+    }
+
+    function render() {
+      const data = loadBrief();
+      const form = document.getElementById('briefForm');
+      const dateInput = document.getElementById('sessionDate');
+      const labelInput = document.getElementById('sessionLabel');
+      const focusInput = document.getElementById('mainFocus');
+      const goalInput = document.getElementById('goal');
+      const watchInput = document.getElementById('watchFor');
+      const warningInput = document.getElementById('warningSigns');
+      const videoInput = document.getElementById('videoRef');
+      const playThroughInput = document.getElementById('playThrough');
+      const metricsInput = document.getElementById('metrics');
+      const successInput = document.getElementById('success');
+
+      dateInput.value = data.sessionDate || '';
+      labelInput.value = data.sessionLabel || '';
+      focusInput.value = data.mainFocus || '';
+      goalInput.value = data.goal || '';
+      watchInput.value = data.watchFor || '';
+      warningInput.value = data.warningSigns || '';
+      videoInput.value = data.videoRef || '';
+      playThroughInput.value = data.playThrough || '';
+      metricsInput.value = data.metrics || '';
+      successInput.value = data.success || '';
+
+      document.getElementById('previewTitle').textContent = labelInput.value || 'Today’s session';
+      document.getElementById('previewDate').textContent = dateInput.value || '—';
+      document.getElementById('previewLabel').textContent = labelInput.value || '—';
+      document.getElementById('previewFocus').textContent = focusInput.value || '—';
+      document.getElementById('previewGoal').textContent = goalInput.value || '—';
+      document.getElementById('previewVideo').textContent = videoInput.value || '—';
+      document.getElementById('previewPlayThrough').textContent = playThroughInput.value || '—';
+      document.getElementById('previewMetrics').textContent = metricsInput.value || '—';
+      document.getElementById('previewSuccess').textContent = successInput.value || '—';
+
+      const watchList = document.getElementById('previewWatch');
+      const warningList = document.getElementById('previewWarnings');
+      watchList.innerHTML = '';
+      warningList.innerHTML = '';
+
+      splitLines(watchInput.value).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        watchList.appendChild(li);
+      });
+
+      splitLines(warningInput.value).forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        warningList.appendChild(li);
+      });
+
+      if (!watchList.children.length) {
+        const li = document.createElement('li');
+        li.textContent = '—';
+        watchList.appendChild(li);
+      }
+      if (!warningList.children.length) {
+        const li = document.createElement('li');
+        li.textContent = '—';
+        warningList.appendChild(li);
+      }
+    }
+
+    document.getElementById('briefForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const payload = {
+        sessionDate: document.getElementById('sessionDate').value,
+        sessionLabel: document.getElementById('sessionLabel').value,
+        mainFocus: document.getElementById('mainFocus').value,
+        goal: document.getElementById('goal').value,
+        watchFor: document.getElementById('watchFor').value,
+        warningSigns: document.getElementById('warningSigns').value,
+        videoRef: document.getElementById('videoRef').value,
+        playThrough: document.getElementById('playThrough').value,
+        metrics: document.getElementById('metrics').value,
+        success: document.getElementById('success').value
+      };
+      saveBrief(payload);
+      render();
+      document.getElementById('status').textContent = 'Session brief saved.';
+    });
+
+    document.getElementById('loadExample').addEventListener('click', function () {
+      const data = { ...defaultValues };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      render();
+      document.getElementById('status').textContent = 'Example brief loaded.';
+    });
+
+    render();
+  </script>
+</body>
+</html>

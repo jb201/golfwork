@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Golf Session Upload</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #183b40;
+      --muted: #52656c;
+      --line: #dfe8e4;
+      --green: #0d8a67;
+      --blue: #245bd8;
+      --amber: #c8891d;
+      --red: #bc5a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 40px); }
+    p { margin: 0 0 16px; color: var(--muted); }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none; color: var(--ink); background: #eef3f1; border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 14px; font-weight: 600;
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+      padding: 20px; box-shadow: 0 1px 2px rgba(24,59,64,0.04);
+    }
+    .grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 24px;
+    }
+    form { display: grid; gap: 16px; }
+    label {
+      display: block; font-weight: 700; font-size: 13px; margin-bottom: 6px;
+    }
+    input, textarea, select {
+      width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; font: inherit;
+      background: white; color: var(--ink);
+    }
+    textarea { min-height: 90px; resize: vertical; }
+    .two-up {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px;
+    }
+    .actions {
+      display: flex; gap: 12px; flex-wrap: wrap; align-items: center;
+      margin-top: 8px;
+    }
+    button {
+      border: 0; border-radius: 10px; background: var(--blue); color: white; padding: 11px 18px;
+      font-weight: 700; cursor: pointer;
+    }
+    .secondary {
+      background: #eff3f1; color: var(--ink); border: 1px solid var(--line);
+    }
+    .small-note { font-size: 13px; color: var(--muted); }
+    .mini-card {
+      background: #f7faf9; border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 16px;
+    }
+    .mini-card strong { font-size: 20px; display: block; margin-top: 8px; }
+    .status {
+      min-height: 24px; font-weight: 700; color: var(--green);
+    }
+    .error { color: var(--red); }
+    @media (max-width: 780px) {
+      .grid, .two-up { grid-template-columns: 1fr; }
+      .topbar { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Weekly golf session upload</h1>
+        <p>Capture each session, save it locally, and send it to the dashboard for tracking.</p>
+      </div>
+      <div class="nav">
+        <a href="golf_coach_app.html">App</a>
+        <a href="weekly_swing_dashboard.html">Dashboard</a>
+        <a href="session_upload.html">Upload</a>
+        <a href="session_brief.html">Session Brief</a>
+        <a href="session_planner.html">Planner</a>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="grid">
+        <div>
+          <form id="session-form">
+            <div>
+              <label for="sessionDate">Session date</label>
+              <input id="sessionDate" type="date" required />
+            </div>
+
+            <div class="two-up">
+              <div>
+                <label for="sessionName">Session label</label>
+                <input id="sessionName" type="text" placeholder="e.g. Range 1 / Sim / On-course" required />
+              </div>
+              <div>
+                <label for="sessionType">Session type</label>
+                <select id="sessionType">
+                  <option>Range</option>
+                  <option>Indoor</option>
+                  <option>On course</option>
+                  <option>Practice drills</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="two-up">
+              <div>
+                <label for="sevenTotal">7i total average</label>
+                <input id="sevenTotal" type="number" step="0.1" min="0" placeholder="e.g. 125" />
+              </div>
+              <div>
+                <label for="sevenCarry">7i carry average</label>
+                <input id="sevenCarry" type="number" step="0.1" min="0" placeholder="e.g. 110" />
+              </div>
+            </div>
+
+            <div class="two-up">
+              <div>
+                <label for="driverTotal">Driver total average</label>
+                <input id="driverTotal" type="number" step="0.1" min="0" placeholder="e.g. 185" />
+              </div>
+              <div>
+                <label for="driverCarry">Driver carry average</label>
+                <input id="driverCarry" type="number" step="0.1" min="0" placeholder="e.g. 170" />
+              </div>
+            </div>
+
+            <div class="two-up">
+              <div>
+                <label for="sequencingScore">Sequencing score</label>
+                <input id="sequencingScore" type="number" min="0" max="10" step="0.1" placeholder="0-10" />
+              </div>
+              <div>
+                <label for="overTheTop">Over-the-top score</label>
+                <input id="overTheTop" type="number" min="0" max="10" step="0.1" placeholder="0-10 (10 = best)" />
+              </div>
+            </div>
+
+            <div class="two-up">
+              <div>
+                <label for="strikeQuality">Strike quality score</label>
+                <input id="strikeQuality" type="number" min="0" max="10" step="0.1" placeholder="0-10" />
+              </div>
+              <div>
+                <label for="solidContactRate">Solid contact rate %</label>
+                <input id="solidContactRate" type="number" min="0" max="100" step="1" placeholder="e.g. 58" />
+              </div>
+            </div>
+
+            <div>
+              <label for="notes">Session notes</label>
+              <textarea id="notes" placeholder="What felt better? What did the swing pattern do? What drill was used?"></textarea>
+            </div>
+
+            <div class="actions">
+              <button type="submit">Save session</button>
+              <button type="button" class="secondary" id="loadExample">Load example</button>
+            </div>
+            <div class="status" id="status"></div>
+          </form>
+        </div>
+
+        <aside>
+          <div class="mini-card">
+            <div class="small-note">7i target</div>
+            <strong>145+ yards total</strong>
+            <div class="small-note">Current measured baseline: 117.2 avg total</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="small-note">Driver target</div>
+            <strong>Build consistency and carry</strong>
+            <div class="small-note">The same sequencing fix should transfer once iron contact improves.</div>
+          </div>
+
+          <div class="mini-card">
+            <div class="small-note">Upload format</div>
+            <p class="small-note">CSV columns: date, sessionName, sessionType, sevenTotal, sevenCarry, driverTotal, driverCarry, sequencingScore, overTheTop, strikeQuality, solidContactRate, notes.</p>
+            <input id="csvFile" type="file" accept=".csv,.json,text/csv,application/json" />
+            <div class="actions" style="margin-top:12px;">
+              <button type="button" class="secondary" id="importFile">Import data</button>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'golfSessionHistory';
+
+    function getSessions() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveSessions(sessions) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
+    }
+
+    function buildSessionObject(form) {
+      return {
+        date: form.sessionDate.value,
+        sessionName: form.sessionName.value.trim(),
+        sessionType: form.sessionType.value,
+        sevenTotal: toNum(form.sevenTotal.value),
+        sevenCarry: toNum(form.sevenCarry.value),
+        driverTotal: toNum(form.driverTotal.value),
+        driverCarry: toNum(form.driverCarry.value),
+        sequencingScore: toNum(form.sequencingScore.value),
+        overTheTop: toNum(form.overTheTop.value),
+        strikeQuality: toNum(form.strikeQuality.value),
+        solidContactRate: toNum(form.solidContactRate.value),
+        notes: form.notes.value.trim()
+      };
+    }
+
+    function toNum(value) {
+      if (value === '' || value === null || value === undefined) return null;
+      const n = Number(value);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function showStatus(message, isError = false) {
+      const el = document.getElementById('status');
+      el.textContent = message;
+      el.classList.toggle('error', isError);
+    }
+
+    function saveCurrentForm() {
+      const session = buildSessionObject(document.getElementById('session-form'));
+      const sessions = getSessions();
+      sessions.push(session);
+      saveSessions(sessions);
+      showStatus('Session saved locally.');
+      document.getElementById('session-form').reset();
+    }
+
+    document.getElementById('session-form').addEventListener('submit', function (event) {
+      event.preventDefault();
+      saveCurrentForm();
+    });
+
+    document.getElementById('loadExample').addEventListener('click', function () {
+      const form = document.getElementById('session-form');
+      form.sessionDate.value = '2026-11-01';
+      form.sessionName.value = 'Sample range session';
+      form.sessionType.value = 'Range';
+      form.sevenTotal.value = '128';
+      form.sevenCarry.value = '116';
+      form.driverTotal.value = '184';
+      form.driverCarry.value = '171';
+      form.sequencingScore.value = '6.5';
+      form.overTheTop.value = '7.0';
+      form.strikeQuality.value = '7.2';
+      form.solidContactRate.value = '62';
+      form.notes.value = 'Better pressure shift and more natural rhythm. Still need to reduce the outside move.';
+      showStatus('Example data loaded.');
+    });
+
+    document.getElementById('importFile').addEventListener('click', function () {
+      const fileInput = document.getElementById('csvFile');
+      const file = fileInput.files[0];
+      if (!file) {
+        showStatus('Choose a CSV or JSON file to import.', true);
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function () {
+        try {
+          let rows = [];
+          const text = String(reader.result || '');
+          if (file.name.toLowerCase().endsWith('.json')) {
+            const parsed = JSON.parse(text);
+            rows = Array.isArray(parsed) ? parsed : [parsed];
+          } else {
+            const lines = text.trim().split(/\r?\n/);
+            if (lines.length < 2) throw new Error('CSV is empty or malformed.');
+            const headers = lines[0].split(',').map(h => h.trim());
+            rows = lines.slice(1).map(line => {
+              const values = line.split(',');
+              const obj = {};
+              headers.forEach((header, idx) => { obj[header] = (values[idx] || '').trim(); });
+              return obj;
+            });
+          }
+
+          const sessions = getSessions();
+          for (const row of rows) {
+            sessions.push({
+              date: row.date || '',
+              sessionName: row.sessionName || 'Imported session',
+              sessionType: row.sessionType || 'Range',
+              sevenTotal: toNum(row.sevenTotal),
+              sevenCarry: toNum(row.sevenCarry),
+              driverTotal: toNum(row.driverTotal),
+              driverCarry: toNum(row.driverCarry),
+              sequencingScore: toNum(row.sequencingScore),
+              overTheTop: toNum(row.overTheTop),
+              strikeQuality: toNum(row.strikeQuality),
+              solidContactRate: toNum(row.solidContactRate),
+              notes: row.notes || ''
+            });
+          }
+          saveSessions(sessions);
+          showStatus('Import complete. Use the dashboard to review the new data.');
+        } catch (error) {
+          showStatus('Import failed: ' + error.message, true);
+        }
+      };
+      reader.readAsText(file);
+    });
+  </script>
+</body>
+</html>

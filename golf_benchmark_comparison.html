@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your golf distances | Benchmark comparison</title>
+<style>
+:root{--ink:#183b40;--muted:#566b70;--blue:#2563eb;--green:#0f8a68;--gold:#b87913;--line:#dce5e3}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f4;color:var(--ink);font:15px/1.5 system-ui,sans-serif}
+main{max-width:1200px;margin:auto;padding:38px 24px}h1{font-size:clamp(26px,4vw,40px);margin:8px 0}
+h2{font-size:21px;margin:0 0 8px}p{margin:8px 0;color:var(--muted)}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--green);font-weight:750}
+.controls{display:flex;flex-wrap:wrap;gap:22px;align-items:end;margin:24px 0}
+label{display:block;font-weight:650;font-size:13px}select{font:inherit;margin-top:6px;padding:10px 36px 10px 12px;border:1px solid #bfcfca;border-radius:8px;background:white;color:var(--ink)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.card,.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:22px}
+.card strong{display:block;font-size:26px;margin:8px 0}.card small{color:var(--muted)}
+.panel{margin-top:20px}.legend{display:flex;gap:18px;flex-wrap:wrap;margin:14px 0;font-size:13px}.swatch{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px}
+svg{display:block;width:100%;height:auto}svg text{font-family:system-ui,sans-serif}
+.scroll{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:12px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}thead th{background:#f4f7f5;font-size:12px}td.heat{font-weight:650}
+.note{font-size:13px}.foot{padding:18px 0;font-size:13px}.badge{background:#e3eee8;padding:3px 8px;border-radius:6px;font-size:12px}
+a{color:var(--blue)}.coverage{margin-top:14px;padding:12px;background:#f5f7f6;border-radius:8px}
+@media(max-width:650px){main{padding:24px 14px}.cards{grid-template-columns:1fr}.card{padding:15px}.card strong{font-size:23px}.panel{padding:16px}}
+</style></head><body><main>
+<div class="eyebrow">Your measured shots / supplied benchmarks</div>
+<h1>Distance potential vs everyday distance</h1>
+<p>Compare your typical shots and good-distance shots against the midpoint of the supplied 15, 10 and 5 handicap ranges.</p>
+<p class="note"><span class="badge">519 shots across 8 comparable clubs</span> &nbsp; Illustrative distance targets, not handicap requirements.</p>
+<div class="controls">
+<label for="metric">Distance measure<select id="metric"><option value="carry">Carry</option><option value="total">Total</option></select></label>
+<label for="handicap">Chart benchmark<select id="handicap"><option value="15">15 handicap</option><option value="10">10 handicap</option><option value="5">5 handicap</option></select></label>
+</div>
+<section class="cards" id="cards" aria-live="polite"></section>
+<section class="panel"><h2 id="distance-title">Distances vs benchmark</h2>
+<p>Your paired shot averages, with the benchmark's full range shaded and its midpoint marked.</p>
+<div class="legend"><span><i class="swatch" style="background:var(--blue)"></i>Typical / middle half</span><span><i class="swatch" style="background:var(--green)"></i>Good-distance / longest quarter</span><span><i class="swatch" style="background:#f2dfb8"></i>Benchmark range; dashed midpoint</span></div>
+<div id="distance-chart"></div></section>
+<section class="panel"><h2 id="heat-title">Percentage below benchmark midpoint</h2>
+<p>All three handicap levels side by side. Lower is closer to the target; negative means above it.</p>
+<div class="scroll"><table id="heatmap"></table></div>
+<p class="note">Percent below = 100 × (benchmark midpoint − your distance) / benchmark midpoint. This is not the percentage increase needed to reach the target.</p></section>
+<section class="panel"><h2>Distance gained on your good-distance shots</h2>
+<p id="gain-note"></p><div id="gain-chart"></div></section>
+<section class="panel"><h2>Exact numbers for the selected benchmark</h2>
+<div class="scroll"><table id="detail"></table></div>
+<div class="coverage"><strong>Coverage:</strong> 5i has supplied targets but no measured shots. GW, 3H, 5H and 6W have measured shots but no supplied targets; no substitute clubs or invented distances are used.</div></section>
+<section class="panel"><h2>Read this before using the targets</h2>
+<p><strong>Typical:</strong> mean of the middle half ranked by carry. <strong>Good-distance:</strong> mean of the longest quarter ranked by carry, not verified good contact or accuracy. Total uses those same shot groups.</p>
+<p>The underlying analysis contains 599 usable shots, with SW/LW excluded and four suspected measurement errors removed. Calculations use unrounded values. Being below a midpoint can still mean you are inside the supplied range.</p>
+<p>These handicap ranges came from your pasted table and are not certified population averages. Equipment, speed, shot intent and conditions may differ. Carry is more useful for clearing trouble; total is condition-dependent.</p>
+<p><a href="golf_benchmark_comparison.xlsx">Open the Excel tables and six native charts</a> · <a href="shot_distance_analysis.xlsx">Original detailed shot analysis</a></p>
+</section><div class="foot">All distances in yards. Standalone dashboard: no external scripts, fonts, analytics or network requests.</div>
+</main><script>
+const data=[{"club": "Driver", "n": 202, "actual": {"carry": {"typical": 165.534, "good": 189.7745098039216}, "total": {"typical": 176.508, "good": 204.4490196078431}}, "benchmarks": {"15": {"carry": [210, 220], "total": [225, 240]}, "10": {"carry": [220, 235], "total": [235, 250]}, "5": {"carry": [235, 250], "total": [250, 270]}}}, {"club": "3W", "n": 119, "actual": {"carry": {"typical": 134.0305084745763, "good": 168.1633333333333}, "total": {"typical": 144.171186440678, "good": 177.84}}, "benchmarks": {"15": {"carry": [180, 190], "total": [190, 205]}, "10": {"carry": [190, 200], "total": [205, 215]}, "5": {"carry": [200, 215], "total": [215, 230]}}}, {"club": "4H", "n": 34, "actual": {"carry": {"typical": 134.7266666666667, "good": 154.57}, "total": {"typical": 141.5533333333333, "good": 161.02}}, "benchmarks": {"15": {"carry": [165, 175], "total": [175, 185]}, "10": {"carry": [175, 185], "total": [185, 195]}, "5": {"carry": [185, 195], "total": [195, 205]}}}, {"club": "5i", "n": 0, "actual": {"carry": {"typical": null, "good": null}, "total": {"typical": null, "good": null}}, "benchmarks": {"15": {"carry": [150, 160], "total": [155, 170]}, "10": {"carry": [160, 170], "total": [170, 180]}, "5": {"carry": [170, 180], "total": [180, 190]}}}, {"club": "6i", "n": 27, "actual": {"carry": {"typical": 109.1076923076923, "good": 139.3}, "total": {"typical": 115.8461538461538, "good": 144.2428571428572}}, "benchmarks": {"15": {"carry": [140, 150], "total": [145, 160]}, "10": {"carry": [150, 160], "total": [160, 170]}, "5": {"carry": [160, 170], "total": [170, 180]}}}, {"club": "7i", "n": 33, "actual": {"carry": {"typical": 109.7133333333333, "good": 126.6111111111111}, "total": {"typical": 117.2466666666667, "good": 134.3333333333333}}, "benchmarks": {"15": {"carry": [130, 140], "total": [135, 145]}, "10": {"carry": [140, 150], "total": [145, 155]}, "5": {"carry": [150, 160], "total": [155, 165]}}}, {"club": "8i", "n": 26, "actual": {"carry": {"typical": 103.525, "good": 118.3428571428572}, "total": {"typical": 109.0166666666667, "good": 121.9571428571428}}, "benchmarks": {"15": {"carry": [120, 130], "total": [125, 135]}, "10": {"carry": [130, 140], "total": [135, 145]}, "5": {"carry": [140, 150], "total": [145, 155]}}}, {"club": "9i", "n": 39, "actual": {"carry": {"typical": 89.6842105263158, "good": 103.64}, "total": {"typical": 94.8157894736842, "good": 108.29}}, "benchmarks": {"15": {"carry": [110, 120], "total": [115, 125]}, "10": {"carry": [120, 130], "total": [125, 135]}, "5": {"carry": [130, 140], "total": [135, 145]}}}, {"club": "PW", "n": 39, "actual": {"carry": {"typical": 83.47894736842106, "good": 97.07}, "total": {"typical": 87.57894736842105, "good": 102.39}}, "benchmarks": {"15": {"carry": [95, 105], "total": [100, 110]}, "10": {"carry": [105, 115], "total": [110, 120]}, "5": {"carry": [115, 125], "total": [120, 130]}}}];
+const usable=data.filter(d=>d.n>0);
+const fmt=n=>n==null?'—':n.toFixed(1);
+const below=(a,b)=>(b-a)/b*100;
+const midpoint=r=>(r[0]+r[1])/2;
+const heat=p=>p<0?'#d7f2e3':p<10?'#e7f2df':p<20?'#fff0c2':p<30?'#ffddba':'#f6b8ab';
+function svgOpen(height,label){return `<svg viewBox="0 0 1000 ${height}" role="img" aria-label="${label}"><title>${label}</title>`}
+function render(){
+ const metric=document.getElementById('metric').value,hc=document.getElementById('handicap').value;
+ const title=metric==='carry'?'Carry':'Total';
+ const driver=usable[0],actual=driver.actual[metric],target=midpoint(driver.benchmarks[hc][metric]);
+ const best=usable.reduce((a,b)=>below(b.actual[metric].good,midpoint(b.benchmarks[hc][metric]))<below(a.actual[metric].good,midpoint(a.benchmarks[hc][metric]))?b:a);
+ document.getElementById('cards').innerHTML=`<div class="card">Driver typical ${metric}<strong>${fmt(actual.typical)} yd</strong><small>${fmt(below(actual.typical,target))}% below ${hc} HC midpoint</small></div><div class="card">Driver good-distance ${metric}<strong>${fmt(actual.good)} yd</strong><small>${fmt(below(actual.good,target))}% below ${hc} HC midpoint</small></div><div class="card">Closest good-distance club<strong>${best.club}</strong><small>${fmt(below(best.actual[metric].good,midpoint(best.benchmarks[hc][metric])))}% below selected midpoint</small></div>`;
+ document.getElementById('distance-title').textContent=`${title} distances vs ${hc} HC benchmark`;
+ const x=v=>95+v/280*760, height=usable.length*68+65;
+ let svg=svgOpen(height,`${title} distances: typical and good-distance shots against ${hc} handicap ranges`);
+ for(let tick=0;tick<=280;tick+=40){svg+=`<line x1="${x(tick)}" y1="18" x2="${x(tick)}" y2="${height-40}" stroke="#e5ece9"/><text x="${x(tick)}" y="${height-14}" text-anchor="middle" font-size="12" fill="#566b70">${tick}</text>`}
+ usable.forEach((d,i)=>{
+   const y=24+i*68,r=d.benchmarks[hc][metric],a=d.actual[metric],mid=midpoint(r);
+   svg+=`<text x="0" y="${y+19}" font-size="14" font-weight="650">${d.club}</text><text x="0" y="${y+36}" font-size="11" fill="#566b70">n=${d.n}</text>
+   <rect x="${x(r[0])}" y="${y-3}" width="${x(r[1])-x(r[0])}" height="51" fill="#f2dfb8" opacity=".65"/>
+   <line x1="${x(mid)}" y1="${y-3}" x2="${x(mid)}" y2="${y+48}" stroke="#b87913" stroke-dasharray="4 3"/>
+   <rect x="${x(0)}" y="${y+2}" width="${x(a.typical)-x(0)}" height="15" rx="3" fill="#2563eb"><title>${d.club} typical: ${fmt(a.typical)} yd</title></rect>
+   <rect x="${x(0)}" y="${y+25}" width="${x(a.good)-x(0)}" height="15" rx="3" fill="#0f8a68"><title>${d.club} good-distance: ${fmt(a.good)} yd</title></rect>
+   <text x="${x(a.typical)+7}" y="${y+14}" font-size="12" fill="#183b40">${fmt(a.typical)}</text><text x="${x(a.good)+7}" y="${y+37}" font-size="12" fill="#183b40">${fmt(a.good)}</text>
+   <text x="900" y="${y+19}" font-size="12" fill="#805718">${r[0]}–${r[1]} yd</text><text x="900" y="${y+36}" font-size="11" fill="#566b70">mid ${fmt(mid)}</text>`;
+ });
+ document.getElementById('distance-chart').innerHTML=svg+'</svg>';
+ document.getElementById('heat-title').textContent=`${title}: percentage below benchmark midpoint`;
+ let table='<thead><tr><th rowspan="2">Club</th><th colspan="2">15 HC</th><th colspan="2">10 HC</th><th colspan="2">5 HC</th></tr><tr>'+[15,10,5].map(()=>'<th>Typical</th><th>Good-distance</th>').join('')+'</tr></thead><tbody>';
+ data.forEach(d=>{table+=`<tr><th scope="row">${d.club}</th>`;[15,10,5].forEach(level=>{['typical','good'].forEach(kind=>{const a=d.actual[metric][kind],p=a==null?null:below(a,midpoint(d.benchmarks[level][metric]));table+=p==null?'<td>No shots</td>':`<td class="heat" style="background:${heat(p)}" title="${d.club}, ${kind}, ${level} HC: ${fmt(p)}% below midpoint">${fmt(p)}%</td>`})});table+='</tr>'});
+ document.getElementById('heatmap').innerHTML=table+'</tbody>';
+ const gains=usable.map(d=>({club:d.club,gain:d.actual[metric].good-d.actual[metric].typical})).sort((a,b)=>b.gain-a.gain);
+ document.getElementById('gain-note').textContent=`Good-distance mean minus typical mean, in ${metric} yards. This is an observed difference, not a promised improvement.`;
+ const gx=v=>95+v/50*760,gh=gains.length*43+58;
+ let gainSvg=svgOpen(gh,`Extra ${metric} distance on good-distance shots compared with typical shots`);
+ for(let tick=0;tick<=50;tick+=10){gainSvg+=`<line x1="${gx(tick)}" y1="10" x2="${gx(tick)}" y2="${gh-35}" stroke="#e5ece9"/><text x="${gx(tick)}" y="${gh-10}" text-anchor="middle" font-size="12">${tick} yd</text>`}
+ gains.forEach((d,i)=>{const y=i*43+15;gainSvg+=`<text x="0" y="${y+18}" font-size="14">${d.club}</text><rect x="${gx(0)}" y="${y}" width="${gx(d.gain)-gx(0)}" height="25" rx="4" fill="#0f8a68"/><text x="${gx(d.gain)+8}" y="${y+18}" font-size="13">+${fmt(d.gain)} yd</text>`});
+ document.getElementById('gain-chart').innerHTML=gainSvg+'</svg>';
+ let detail='<thead><tr><th>Club</th><th>Target range</th><th>Midpoint</th><th>Typical</th><th>Typical yd below</th><th>Good-distance</th><th>Good yd below</th></tr></thead><tbody>';
+ data.forEach(d=>{const r=d.benchmarks[hc][metric],mid=midpoint(r),a=d.actual[metric];detail+=`<tr><th scope="row">${d.club}</th><td>${r[0]}–${r[1]}</td><td>${fmt(mid)}</td><td>${fmt(a.typical)}</td><td>${fmt(a.typical==null?null:mid-a.typical)}</td><td>${fmt(a.good)}</td><td>${fmt(a.good==null?null:mid-a.good)}</td></tr>`});
+ document.getElementById('detail').innerHTML=detail+'</tbody>';
+}
+document.getElementById('metric').addEventListener('change',render);
+document.getElementById('handicap').addEventListener('change',render);
+render();
+</script></body></html>

@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Session Planner</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #183b40;
+      --muted: #52656c;
+      --line: #dfe8e4;
+      --green: #0d8a67;
+      --blue: #245bd8;
+      --amber: #c8891d;
+      --red: #bc5a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink);
+      font: 16px/1.5 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      max-width: 1100px; margin: 0 auto; padding: 32px 20px 64px;
+    }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 4vw, 40px); }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    p { margin: 0 0 14px; color: var(--muted); }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .nav {
+      display: flex; gap: 10px; flex-wrap: wrap;
+    }
+    .nav a {
+      text-decoration: none; color: var(--ink); background: #eef3f1; border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 14px; font-weight: 600;
+    }
+    .layout {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 20px; box-shadow: 0 1px 2px rgba(24,59,64,0.04);
+    }
+    .pill {
+      display: inline-block; background: #edf6f2; color: var(--green); border-radius: 999px; padding: 5px 9px; font-size: 12px; font-weight: 700; margin-bottom: 10px;
+    }
+    .summary-grid {
+      display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 12px; margin-bottom: 18px;
+    }
+    .metric {
+      background: #f7faf9; border: 1px solid var(--line); border-radius: 12px; padding: 12px;
+    }
+    .metric .label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700;
+    }
+    .metric .value {
+      display: block; margin-top: 8px; font-size: clamp(22px, 3vw, 30px); font-weight: 800;
+    }
+    .step {
+      border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(180deg, #fbfcfb 0%, #ffffff 100%);
+      padding: 16px; margin-top: 14px;
+    }
+    .step h3 {
+      margin: 0 0 8px; font-size: 18px;
+    }
+    .step p {
+      margin: 0 0 6px; color: var(--muted);
+    }
+    .step strong {
+      color: var(--ink);
+    }
+    ul {
+      margin: 10px 0 0 18px; color: var(--muted);
+      padding: 0;
+    }
+    li + li { margin-top: 8px; }
+    .warning {
+      border-left: 4px solid var(--amber); background: #fffaf0; padding: 12px 14px; border-radius: 10px; color: var(--ink); margin-top: 18px;
+    }
+    .button-row {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
+    }
+    button {
+      border: 0; border-radius: 10px; background: var(--blue); color: white; padding: 11px 16px; font-weight: 700; cursor: pointer;
+    }
+    .secondary {
+      background: #eff3f1; color: var(--ink); border: 1px solid var(--line);
+    }
+    @media (max-width: 900px) {
+      .layout, .summary-grid { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Session planner</h1>
+        <p>Build the next practice session around what is actually working, not just what feels good.</p>
+      </div>
+      <div class="nav">
+        <a href="golf_coach_app.html">App</a>
+        <a href="weekly_swing_dashboard.html">Dashboard</a>
+        <a href="session_upload.html">Upload</a>
+        <a href="session_brief.html">Session Brief</a>
+        <a href="session_planner.html">Planner</a>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="pill">Adaptive coaching system</div>
+      <div class="summary-grid" id="historySummary"></div>
+      <div id="plannerOutput"></div>
+      <div class="button-row">
+        <button id="regenBtn">Generate next session</button>
+        <button id="resetBtn" class="secondary">Use Session 1 template</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const HISTORY_KEY = 'golfCoachAppHistory';
+
+    function getHistory() {
+      const raw = localStorage.getItem(HISTORY_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function num(value) {
+      if (value === '' || value === null || value === undefined) return null;
+      const n = Number(value);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function avg(list) {
+      const vals = list.filter(v => v !== null && v !== undefined && !Number.isNaN(v));
+      if (!vals.length) return null;
+      return vals.reduce((sum, v) => sum + v, 0) / vals.length;
+    }
+
+    function fmt(value, digits = 1) {
+      if (value === null || value === undefined || Number.isNaN(value)) return '—';
+      return Number(value).toFixed(digits);
+    }
+
+    function hasText(value, match) {
+      return (value || '').toLowerCase().includes(match.toLowerCase());
+    }
+
+    function planForHistory(history) {
+      const last = history[history.length - 1] || null;
+      const historical = history.length ? history : [];
+      const seven = historical.map(h => num(h.sevenTotal)).filter(v => v !== null);
+      const driver = historical.map(h => num(h.driverTotal)).filter(v => v !== null);
+      const sequence = historical.map(h => num(h.sequenceScore)).filter(v => v !== null);
+      const strike = historical.map(h => num(h.strikeScore)).filter(v => v !== null);
+
+      const avgSeven = avg(seven);
+      const avgDriver = avg(driver);
+      const avgSequence = avg(sequence);
+      const avgStrike = avg(strike);
+
+      let plan = [
+        {
+          title: 'Warm-up and rhythm',
+          duration: '5-8 min',
+          focus: 'Move without force. Feel the lower body start the turn and let the arms follow naturally.',
+          details: [
+            '10 slow body turns with a light grip and no swing thought beyond rhythm.',
+            '5 half-swings into a mirror or a stationary target, keeping the pressure moving to the lead side.',
+            'Trail side stays quiet; let the chest and pelvis move together.'
+          ]
+        },
+        {
+          title: 'Pressure shift and sequencing',
+          duration: '12-15 min',
+          focus: 'Learn lead-foot support with the staggered-stance rehearsal below, then blend it into a normal-stance half-swing. Do not force separate body movements.',
+          details: [
+            'Purpose of this drill is to feel the lead leg supporting a small turning swing, then carry that sensation into your normal stance.',
+            'Follow the detailed staggered-stance setup below: 5 no-ball rehearsals, then 5 small shots only if comfortable.',
+            'Return to your normal stance for 5 half-swing shots. Repeat that pair of blocks once.',
+            'Use one cue: “Lead foot supports me as I turn through.” No per-shot grading is required.'
+          ]
+        },
+        {
+          title: 'Strike quality block',
+          duration: '15-20 min',
+          focus: 'Solid contact matters more than swing speed. Build it through center-face contact and rhythm.',
+          details: [
+            'Hit 8-10 7i shots with a lighter, more connected motion.',
+            'Keep the contact pattern centered and avoid trying to “hit through” the ball too hard.',
+            'If the strike feels weak, reduce speed and focus on the feel of the pressure shift.',
+            'After each shot ask: Did pressure move to lead side? Was the transition smooth? Did I finish balanced?'
+          ]
+        },
+        {
+          title: 'Optional play-through check',
+          duration: '3-5 holes (up to 18 if you choose)',
+          focus: 'Test whether the same pattern survives in real play. This is not a scoring session; it is a carryover check.',
+          details: [
+            'Play a short loop of 3-5 holes and note whether pressure shift, rhythm, and contact still show up.',
+            'Track whether the swing remains connected or reverts to quick arms and a rushed transition.',
+            'If the pattern regresses, treat it as information: reduce complexity and return to the 7i drill block.'
+          ]
+        },
+        {
+          title: 'Review and note',
+          duration: '5 min',
+          focus: 'Capture what improved, what felt disconnected, and what one cue will carry into the next session.',
+          details: [
+            'Write down the best 3 swings, what changed, and whether the sequence was smooth.',
+            'If the ball flight was better, keep that cue. If tension appeared, remove it from the plan.',
+            'Record whether the playing session stayed true to the practice pattern or regressed under pressure.'
+          ]
+        }
+      ];
+
+      const data = {
+        lastSession: last,
+        avgSeven,
+        avgDriver,
+        avgSequence,
+        avgStrike
+      };
+
+      if (!history.length) {
+        return {
+          title: 'Session 1: build sequence before speed',
+          summary: 'This is the start of the system. The objective is not distance first; it is a connected, athletic move that repeats under control.',
+          warning: 'Do not chase speed in session 1. The first session is about building a repeatable pattern, not hitting the longest shots. Use a simple metric check instead of vague swing thoughts.',
+          plan,
+          data,
+          emphasis: 'Sequence + pressure shift + solid contact'
+        };
+      }
+
+      const issues = [];
+      if (last && (num(last.sequenceScore) === null || num(last.sequenceScore) < 6)) {
+        issues.push('sequence');
+      }
+      if (last && (num(last.strikeScore) === null || num(last.strikeScore) < 6)) {
+        issues.push('contact');
+      }
+      if (hasText(last.notes || '', 'over-the-top') || hasText(last.focus || '', 'over the top') || hasText(last.notes || '', 'quick arms')) {
+        issues.push('over-the-top');
+      }
+      if (issues.includes('sequence')) {
+        plan[1].focus = 'Repeat the detailed lead-support rehearsal below before normal-stance half-swings. Missing scores alone do not diagnose a sequencing fault.';
+      }
+
+      if (issues.includes('contact')) {
+        plan[2].focus = 'Contact quality is the next priority. Build a centered strike before trying to add more speed.';
+        plan[2].details = [
+          'Hit 8-10 7i shots with a smooth, controlled motion and a lighter grip pressure.',
+          'If contact is weak, reduce the swing size and focus on the pressure shift into the lead side.',
+          'Keep the club face moving through the ball instead of trying to scoop it.'
+        ];
+      }
+
+      if (issues.includes('over-the-top')) {
+        plan[1].details.push('Do not deliberately swing outside-to-inside or trap the club behind you. The uploaded video and available club-path data are needed to assess an over-the-top pattern.');
+      }
+
+      return {
+        title: 'Adaptive session plan',
+        summary: 'This plan follows the last session’s biggest variable. Keep the cues that improved sequence and strike, and remove anything that caused tension or a rushed move.',
+        warning: 'If the last session was inconsistent, do not suddenly change the entire pattern. Keep the plan simple: sequence, contact, then extension.',
+        plan,
+        data,
+        emphasis: issues.length ? 'Fix the main pattern, then repeat it under light pressure' : 'Keep the pattern stable and avoid unnecessary complexity'
+      };
+    }
+
+    function renderHistorySummary(data) {
+      const container = document.getElementById('historySummary');
+      const entries = [
+        ['7i avg', data.avgSeven !== null ? `${fmt(data.avgSeven)} yd` : '—'],
+        ['Seq avg', data.avgSequence !== null ? fmt(data.avgSequence) : '—'],
+        ['Strike avg', data.avgStrike !== null ? fmt(data.avgStrike) : '—'],
+        ['Focus', '7i only']
+      ];
+      container.innerHTML = entries.map(([label, value]) => `
+        <div class="metric">
+          <span class="label">${label}</span>
+          <span class="value">${value}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderPlan(planData) {
+      const container = document.getElementById('plannerOutput');
+      const last = planData.data.lastSession;
+      const summaryLine = last ? `Last session: ${last.sessionType || 'session'} / seq ${fmt(num(last.sequenceScore))} / strike ${fmt(num(last.strikeScore))} / 7i ${fmt(num(last.sevenTotal))} yd` : 'No prior sessions logged yet. Starting with the default session 1 template.';
+
+      const planHtml = `
+        <div style="margin-top: 18px;">
+          <div class="pill">${planData.title}</div>
+          <h2>${planData.emphasis}</h2>
+          <p>${planData.summary}</p>
+          <p><strong>Coach note:</strong> ${summaryLine}</p>
+          <div class="warning"><strong>Current phase:</strong> 7i-only coaching. Driver work is deferred until the sequencing and strike pattern is stable.</div>
+          <div class="warning"><strong>Optional play-through:</strong> After the drill block, you may play 3-5 holes to check whether the pattern carries into real play. If the pattern regresses, reset to the simpler 7i sequence work.</div>
+          <div class="warning"><strong>Video references:</strong> <a href="https://www.youtube.com/results?search_query=golf+staggered+stance+lead+leg+drill" target="_blank" rel="noreferrer">Search for a staggered-stance demonstration</a> or <a href="https://www.youtube.com/results?search_query=danny+maude+golf+swing+sequence+pressure+shift" target="_blank" rel="noreferrer">Danny Maude pressure-shift demonstrations</a>. These are search links, not verified individual video recommendations.</div>
+          <div class="warning"><strong>No grading during practice:</strong> Let your device capture the shots and upload the data afterward. Keep drill shots and normal-stance shots in separate blocks where possible. Ordinary launch-monitor data cannot directly measure foot pressure or prove body sequencing; video helps interpret the results.</div>
+          <div class="warning">${planData.warning}</div>
+        </div>
+
+        <div class="step">
+          <h3>Drill 1 — Staggered stance: learn lead-leg support</h3>
+          <p><strong>Purpose of this drill is to</strong> feel your lead foot and leg supporting you while you turn through a small swing. This is a lead-support exercise, not a complete lesson in dynamic pressure-shift timing.</p>
+          <p><strong>Which foot?</strong> Lead means the foot nearer the target: left for a right-handed swing, right for a left-handed swing. Trail is the other foot.</p>
+          <ol>
+            <li><strong>Start normally:</strong> take your usual 7i address, knees soft, with the ball near the middle of your stance. Begin without a ball and leave plenty of club clearance.</li>
+            <li><strong>Stagger the trail foot:</strong> leave the lead foot where it is. Slide the trail foot about half a shoe-length directly away from the ball / behind your original heel line. “Back” here means away from the ball, NOT farther away from the target. This is a small stagger, not a lunge.</li>
+            <li><strong>Feel the support:</strong> keep the lead sole flat, knee softly bent, and allow most of your support to rest on that leg. Keep the trail toes touching down for balance; the trail heel may be light. Do not force a percentage or balance on one leg.</li>
+            <li><strong>Make a small backswing:</strong> take the hands only to about waist height. Let the chest turn with the club. Stay supported by the lead leg; do not sway onto the trail foot or freeze the arms.</li>
+            <li><strong>Turn through:</strong> make a gentle waist-high-to-waist-high swing. Feel the lead sole supporting the turn as your chest, arms and club move through together. Do not shove your hips toward the target, lock the lead knee, or deliberately hold the club back.</li>
+            <li><strong>Finish:</strong> hold a comfortable finish for two seconds with the lead foot grounded. The trail foot remains a light support. Balance is feedback, not proof that sequencing is correct.</li>
+          </ol>
+          <p><strong>Repetitions:</strong> 5 no-ball rehearsals. If stable and comfortable, hit 5 small 7i shots at roughly half effort in that stance. Then return to normal stance for Drill 2. Shorter drill-shot distances are expected.</p>
+          <p><strong>What it should feel like:</strong> “My lead foot is a stable platform; I turn through it rather than falling backward.” Use only: <em>“Lead foot supports me as I turn through.”</em></p>
+          <p><strong>If it goes wrong:</strong> if you wobble, shorten the stagger and swing. If you repeatedly hit heavy or thin shots, rehearse without a ball, then use normal stance. Stop if there is knee, hip, or back pain; never twist against a locked knee.</p>
+        </div>
+
+        <div class="step">
+          <h3>Drill 2 — Normal-stance transfer</h3>
+          <p><strong>Purpose of this drill is to</strong> carry the lead-support sensation into your actual golf stance without stepping or consciously moving body parts one at a time.</p>
+          <ol>
+            <li>Restore your usual foot positions and normal 7i ball position.</li>
+            <li>Make one small rehearsal. Let pressure move naturally toward the trail side going back, then feel the lead sole accept support as you change direction and turn through. Do not wait until after impact to move onto the lead side.</li>
+            <li>Hit 5 waist-high-to-waist-high shots at comfortable effort with the same single cue. Keep the movement continuous; no “hips, then chest, then arms” stop-start sequence.</li>
+            <li>Repeat Drill 1 and Drill 2 once. Finish with 5 normal-stance shots using only a target and your usual routine, to see what transfers without a drill cue.</li>
+          </ol>
+          <p><strong>After the session:</strong> upload the captured shots and, if available, face-on video. Separate staggered-stance and normal shots; do not compare their distances as if they were equivalent swings.</p>
+        </div>
+
+        <div class="step">
+          <h3>Headcover instruction — withdrawn</h3>
+          <p>The previous instruction to put a headcover beside your lead hip did not define a useful task or feedback mechanism. It should not have been prescribed as a pressure-shift drill. Use the two explicit drills above instead.</p>
+        </div>
+        ${planData.plan.map((step, index) => `
+          <div class="step">
+            <h3>${index + 1}. ${step.title}</h3>
+            <p><strong>Duration:</strong> ${step.duration}</p>
+            <p><strong>Feeling:</strong> ${step.focus}</p>
+            <ul>
+              ${step.details.map(item => `<li>${item}</li>`).join('')}
+            </ul>
+          </div>
+        `).join('')}
+      `;
+
+      container.innerHTML = planHtml;
+    }
+
+    function generatePlan() {
+      const history = getHistory();
+      const planData = planForHistory(history);
+      renderHistorySummary(planData.data);
+      renderPlan(planData);
+      return planData;
+    }
+
+    document.getElementById('regenBtn').addEventListener('click', generatePlan);
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      localStorage.removeItem(HISTORY_KEY);
+      generatePlan();
+    });
+
+    generatePlan();
+  </script>
+</body>
+</html>

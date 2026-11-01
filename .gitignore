@@ -1,0 +1,17 @@
+# Local Discovery runtime, machine configuration, and logs
+.discovery/
+
+# Credentials and local environment configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Editor and operating-system temporary files
+.vscode/
+Thumbs.db
+.DS_Store
+~$*
+__pycache__/
+*.pyc

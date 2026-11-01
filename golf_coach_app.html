@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Golf Coach App</title>
+  <style>
+    :root {
+      --bg: #f3f5f2;
+      --panel: #ffffff;
+      --ink: #183b40;
+      --muted: #52656c;
+      --line: #dfe8e4;
+      --green: #0d8a67;
+      --blue: #245bd8;
+      --amber: #c8891d;
+      --red: #bc5a4a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 system-ui, sans-serif;
+    }
+    main {
+      max-width: 1280px; margin: 0 auto; padding: 28px 18px 60px;
+    }
+    h1 { margin: 0 0 10px; font-size: clamp(28px, 4vw, 42px); }
+    h2 { margin: 0 0 12px; font-size: 22px; }
+    p { margin: 0 0 14px; color: var(--muted); }
+    .topbar {
+      display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;
+    }
+    .nav {
+      display: flex; flex-wrap: wrap; gap: 10px;
+    }
+    .nav a {
+      text-decoration: none; color: var(--ink); background: #eef3f1; border: 1px solid var(--line);
+      border-radius: 999px; padding: 8px 14px; font-weight: 700;
+    }
+    .grid {
+      display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px;
+    }
+    .panel {
+      background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 18px;
+      box-shadow: 0 1px 2px rgba(23,47,53,0.04);
+    }
+    .cards {
+      display: grid; grid-template-columns: repeat(4, minmax(120px, 1fr)); gap: 12px; margin-bottom: 20px;
+    }
+    .card {
+      background: #f7faf9; border: 1px solid var(--line); border-radius: 14px; padding: 14px;
+    }
+    .card .label {
+      font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-weight: 700;
+    }
+    .card .value {
+      font-size: clamp(24px, 3vw, 32px); font-weight: 800; display: block; margin-top: 8px;
+    }
+    .card .tiny {
+      display: block; margin-top: 6px; color: var(--muted); font-size: 12px;
+    }
+    form { display: grid; gap: 16px; }
+    .two-up {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px;
+    }
+    label {
+      display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%; padding: 10px 11px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: white;
+    }
+    textarea { min-height: 110px; resize: vertical; }
+    button {
+      border: 0; border-radius: 10px; background: var(--blue); color: white; padding: 11px 16px; font-weight: 700; cursor: pointer;
+    }
+    .secondary {
+      background: #eef3f1; color: var(--ink); border: 1px solid var(--line);
+    }
+    .status { min-height: 20px; font-weight: 700; color: var(--green); }
+    table {
+      width: 100%; border-collapse: collapse; font-size: 14px;
+    }
+    th, td {
+      padding: 12px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top;
+    }
+    thead th {
+      background: #f5f8f7; font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted);
+    }
+    .tag {
+      display: inline-block; background: #edf4f0; color: var(--green); border-radius: 999px; padding: 5px 9px; font-size: 12px; font-weight: 700;
+    }
+    .pill {
+      display: inline-block; background: #fff4df; color: var(--amber); border-radius: 999px; padding: 5px 9px; font-size: 12px; font-weight: 700;
+    }
+    @media (max-width: 900px) {
+      .cards, .grid, .two-up { grid-template-columns: 1fr; }
+      .topbar { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="topbar">
+      <div>
+        <h1>Golf Coach App</h1>
+        <p>Practice block + played holes + weekly improvement loop.</p>
+      </div>
+      <div class="nav">
+        <a href="golf_coach_app.html">App</a>
+        <a href="weekly_swing_dashboard.html">Dashboard</a>
+        <a href="session_upload.html">Upload</a>
+        <a href="session_brief.html">Session Brief</a>
+        <a href="session_planner.html">Planner</a>
+      </div>
+    </div>
+
+    <section class="cards">
+      <div class="card">
+        <div class="label">7i total</div>
+        <span class="value" id="sevenSummary">—</span>
+        <span class="tiny">current average</span>
+      </div>
+      <div class="card">
+        <div class="label">Driver total</div>
+        <span class="value" id="driverSummary">—</span>
+        <span class="tiny">current average</span>
+      </div>
+      <div class="card">
+        <div class="label">Sequence</div>
+        <span class="value" id="sequenceSummary">—</span>
+        <span class="tiny">0-10 score</span>
+      </div>
+      <div class="card">
+        <div class="label">Strike</div>
+        <span class="value" id="strikeSummary">—</span>
+        <span class="tiny">solid contact</span>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="panel">
+        <h2>Log a session</h2>
+        <form id="sessionForm">
+          <div class="two-up">
+            <div>
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+            <div>
+              <label for="sessionType">Session type</label>
+              <select id="sessionType">
+                <option>Practice block</option>
+                <option>Played holes</option>
+                <option>Mixed session</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="two-up">
+            <div>
+              <label for="practiceMinutes">Practice minutes</label>
+              <input id="practiceMinutes" type="number" min="0" step="5" placeholder="e.g. 25" />
+            </div>
+            <div>
+              <label for="holesMinutes">Played holes minutes</label>
+              <input id="holesMinutes" type="number" min="0" step="5" placeholder="e.g. 35" />
+            </div>
+          </div>
+
+          <div class="two-up">
+            <div>
+              <label for="sevenTotal">7i total avg</label>
+              <input id="sevenTotal" type="number" step="0.1" placeholder="e.g. 128" />
+            </div>
+            <div>
+              <label for="driverTotal">Driver total avg</label>
+              <input id="driverTotal" type="number" step="0.1" placeholder="e.g. 185" />
+            </div>
+          </div>
+
+          <div class="two-up">
+            <div>
+              <label for="sequenceScore">Sequencing score</label>
+              <input id="sequenceScore" type="number" min="0" max="10" step="0.1" placeholder="0-10" />
+            </div>
+            <div>
+              <label for="strikeScore">Strike quality</label>
+              <input id="strikeScore" type="number" min="0" max="10" step="0.1" placeholder="0-10" />
+            </div>
+          </div>
+
+          <div>
+            <label for="focus">Main focus</label>
+            <input id="focus" type="text" placeholder="e.g. pressure shift, lead-side turn, headcover drill" />
+          </div>
+
+          <div>
+            <label for="notes">Session notes</label>
+            <textarea id="notes" placeholder="What changed? Did the swing feel freer? Did the practice block carry over to actual holes?"></textarea>
+          </div>
+
+          <div class="two-up">
+            <button type="submit">Save session</button>
+            <button type="button" class="secondary" id="loadExample">Load example</button>
+          </div>
+          <div class="status" id="status"></div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Weekly lesson logic</h2>
+        <p><span class="tag">Focus</span> Use the practice block to test the swing. Use the played holes to see what actually carries over.</p>
+        <p><span class="pill">Rule</span> Keep only the cues that improve sequence, strike, and 7i distance without forcing power.</p>
+
+        <table>
+          <thead>
+            <tr><th>Check</th><th>Meaning</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Seq > 7</td><td>Good pattern</td></tr>
+            <tr><td>Strike > 7</td><td>Healthy contact</td></tr>
+            <tr><td>7i total > 145</td><td>Goal hit</td></tr>
+            <tr><td>Practice != holes</td><td>Test carryover</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" style="margin-top:20px;">
+      <h2>Session history</h2>
+      <div id="historyTable"></div>
+    </section>
+  </main>
+
+  <script>
+    const STORAGE_KEY = 'golfCoachAppHistory';
+
+    function getHistory() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveHistory(history) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(history));
+    }
+
+    function num(v) {
+      if (v === '' || v === null || v === undefined) return null;
+      const n = Number(v);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    function fmt(v, digits = 1) {
+      if (v === null || v === undefined || Number.isNaN(v)) return '—';
+      return Number(v).toFixed(digits);
+    }
+
+    function avg(arr) {
+      const valid = arr.filter(v => v !== null && v !== undefined && !Number.isNaN(v));
+      if (!valid.length) return null;
+      return valid.reduce((sum, v) => sum + v, 0) / valid.length;
+    }
+
+    function buildSession(form) {
+      return {
+        date: form.date.value,
+        sessionType: form.sessionType.value,
+        practiceMinutes: num(form.practiceMinutes.value),
+        holesMinutes: num(form.holesMinutes.value),
+        sevenTotal: num(form.sevenTotal.value),
+        driverTotal: num(form.driverTotal.value),
+        sequenceScore: num(form.sequenceScore.value),
+        strikeScore: num(form.strikeScore.value),
+        focus: form.focus.value.trim(),
+        notes: form.notes.value.trim()
+      };
+    }
+
+    function renderSummary() {
+      const history = getHistory();
+      const seven = history.map(h => num(h.sevenTotal)).filter(v => v !== null);
+      const driver = history.map(h => num(h.driverTotal)).filter(v => v !== null);
+      const sequence = history.map(h => num(h.sequenceScore)).filter(v => v !== null);
+      const strike = history.map(h => num(h.strikeScore)).filter(v => v !== null);
+
+      document.getElementById('sevenSummary').textContent = avg(seven) === null ? '—' : fmt(avg(seven), 1) + ' yd';
+      document.getElementById('driverSummary').textContent = avg(driver) === null ? '—' : fmt(avg(driver), 1) + ' yd';
+      document.getElementById('sequenceSummary').textContent = avg(sequence) === null ? '—' : fmt(avg(sequence), 1);
+      document.getElementById('strikeSummary').textContent = avg(strike) === null ? '—' : fmt(avg(strike), 1);
+    }
+
+    function renderHistory() {
+      const history = getHistory().slice().reverse();
+      const table = document.getElementById('historyTable');
+      if (!history.length) {
+        table.innerHTML = '<p style="color:#52656c; margin:0;">No sessions logged yet.</p>';
+        return;
+      }
+
+      let html = '<table><thead><tr><th>Date</th><th>Type</th><th>Practice</th><th>Holes</th><th>7i</th><th>Driver</th><th>Seq</th><th>Strike</th><th>Focus</th></tr></thead><tbody>';
+      history.slice(0, 12).forEach(session => {
+        html += `<tr>
+          <td>${session.date || '—'}</td>
+          <td>${session.sessionType || '—'}</td>
+          <td>${session.practiceMinutes ?? '—'} min</td>
+          <td>${session.holesMinutes ?? '—'} min</td>
+          <td>${fmt(num(session.sevenTotal), 1)}</td>
+          <td>${fmt(num(session.driverTotal), 1)}</td>
+          <td>${fmt(num(session.sequenceScore), 1)}</td>
+          <td>${fmt(num(session.strikeScore), 1)}</td>
+          <td>${session.focus || '—'}</td>
+        </tr>`;
+      });
+      html += '</tbody></table>';
+      table.innerHTML = html;
+    }
+
+    function showStatus(message, error = false) {
+      const el = document.getElementById('status');
+      el.textContent = message;
+      el.style.color = error ? '#bc5a4a' : '#0d8a67';
+    }
+
+    document.getElementById('sessionForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      const session = buildSession(this);
+      const history = getHistory();
+      history.push(session);
+      saveHistory(history);
+      renderSummary();
+      renderHistory();
+      this.reset();
+      showStatus('Session saved.');
+    });
+
+    document.getElementById('loadExample').addEventListener('click', function () {
+      const form = document.getElementById('sessionForm');
+      form.date.value = '2026-11-01';
+      form.sessionType.value = 'Mixed session';
+      form.practiceMinutes.value = '25';
+      form.holesMinutes.value = '35';
+      form.sevenTotal.value = '128';
+      form.driverTotal.value = '184';
+      form.sequenceScore.value = '6.5';
+      form.strikeScore.value = '7.2';
+      form.focus.value = 'Pressure shift and headcover drill';
+      form.notes.value = 'The practice reps felt cleaner than the holes, which suggests the hit pattern is improving but carrying over is still inconsistent.';
+      showStatus('Example session loaded.');
+    });
+
+    renderSummary();
+    renderHistory();
+  </script>
+</body>
+</html>
