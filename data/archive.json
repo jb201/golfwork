@@ -1,0 +1,6 @@
+{
+  "schemaVersion": 1,
+  "goal": {"club": "7i", "totalYards": 145},
+  "baseline": {"totalYards": 117.2, "carryYards": 109.7, "description": "Initial benchmark; not a completed weekly session"},
+  "sessions": [{"id": "2026-11-01-session-01", "date": "2026-11-01", "title": "Session 01 — Lead support and natural rhythm", "path": "sessions/2026-11-01-session-01/session.json"}]
+}

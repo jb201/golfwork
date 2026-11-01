@@ -1,5 +1,23 @@
 # Golf Coaching Workspace
 
+## Start here — the weekly swing journal
+
+Open [the home page](index.html) locally over HTTP or at **https://jb201.github.io/golfwork/** after GitHub Pages deploys.
+
+- [Journal](index.html): dated plans/results and month navigation.
+- [Plan](coach/plan.html): generate a saved next-session snapshot from the latest earlier completed session.
+- [Record results](coach/import.html): import measured shot CSV or enter an uploaded session summary; no self-grading.
+- [Progress](coach/progress.html): normal 7i session averages, sample sizes, and goal gap.
+- [Session 01](coach/session.html?id=2026-11-01-session-01): the first plan, not a completed session.
+
+The authoritative history is in Git, not localStorage. Each session lives in **sessions/YYYY-MM-DD-slug/session.json** with its dated plan, exact drill instructions, rationale, prior-session reference, and optional results. The manifest is [data/archive.json](data/archive.json); the reusable drill library is [data/drills.json](data/drills.json). Plans copy the library so later instruction changes do not rewrite earlier plans.
+
+Phone/browser edits are explicitly labeled **local drafts**. Download a session bundle and return it to the workspace for validation and commit; only a push publishes it across devices. GitHub Pages cannot write to this repo. See [the weekly workflow](docs/session-workflow.md) for publication, CSV format, and limitations.
+
+The Pages workflow publishes only the journal, shared assets, and session archive. Root spreadsheets, WordPress export, and swing video are not in the Pages artifact (they still remain in the repository and are public if the repository is public). Set **Settings → Pages → Source → GitHub Actions** once. The existing root coaching filenames are compatibility redirects for local bookmarks; use the structured routes above on the published site.
+
+The sections below describe the original baseline and research context, not a current drill prescription.
+
 This workspace is set up as a Discovery-based golf improvement project focused on one core goal:
 
 - Raise your 7-iron average to at least 145 yards total
@@ -16,7 +34,7 @@ The biggest driver of the issue is likely not a raw power problem but a path/seq
 - poor sequencing from lower body to torso to arms
 - trying to force the swing instead of letting it happen naturally
 
-The current evidence and source material in this workspace already point toward the headcover drill as a useful intervention, but it must be treated as a feedback tool, not a magic fix.
+The previously vague headcover prescription has been withdrawn. Current plans use explicit lead-support and normal-stance-transfer drills. Sequencing and over-the-top remain hypotheses requiring shot data and video, not diagnoses from distance alone.
 
 ## Primary data sources in this workspace
 
@@ -49,7 +67,7 @@ The project is organized around three working tracks:
 
 - Review the last 20-30 iron swings and note carry/total, strike quality, and direction
 - Check the over-the-top pattern using video and one simple set of visual cues
-- Use the headcover drill as a low-speed feedback exercise, not as a full-power swing model
+- Use the specific drill instructions preserved in that session’s saved plan
 - Work on pressure shift and sequencing before adding speed
 - Validate the fix with real swings at 50-70% effort before increasing speed
 - Repeat the same concept with the driver once the 7-iron pattern becomes repeatable

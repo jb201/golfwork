@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "2026-11-01-session-01",
+  "date": "2026-11-01",
+  "title": "Session 01 — Lead support and natural rhythm",
+  "plan": {
+    "createdAt": "2026-11-01T00:00:00Z",
+    "basedOnSessionId": null,
+    "rationale": "First planned session, anchored to the initial 117.2-yard total benchmark. No completed weekly session has been uploaded. Pressure shift and over-the-top remain hypotheses to test, not diagnoses from distance alone.",
+    "focus": "7i only — Lead support, rhythm and comfortable contact",
+    "cue": "Lead foot supports me as I turn through.",
+    "schedule": ["5–8 minutes: comfortable warm-up and 5 small no-ball swings.", "12–15 minutes: 5 staggered-stance rehearsals, 5 staggered shots, 5 normal half-shots; repeat the shot blocks once.", "10–15 minutes: 5 cue-free normal shots, then 5–10 comfortable normal shots. Do not chase maximum speed.", "Optional: play 3–5 holes using your usual routine. Record this separately from practice; driver is not coached in this phase.", "Afterward: upload captured data and optional video. No per-shot self-grading."],
+    "drills": [
+      {
+        "id": "lead-support", "title": "Staggered stance — Learn lead-leg support",
+        "purpose": "Purpose of this drill is to feel your lead foot and leg supporting you while you turn through a small swing. This teaches lead support, not the full timing of dynamic pressure shift.",
+        "setup": "Lead foot means the foot nearer the target: left for a right-handed swing, right for a left-handed swing. Take normal 7i address with soft knees. Leave the lead foot in place; slide the trail foot half a shoe-length directly AWAY FROM THE BALL, behind the original heel line—not farther from the target. It is a small stagger, not a lunge. Keep the lead sole flat and trail toes down for balance, with the trail heel light if comfortable.",
+        "steps": ["Start without a ball and with plenty of club clearance. Rest most of your support on the lead leg without trying to measure a percentage or balancing on one leg.", "Take the hands back only to waist height, allowing the chest and club to move together. Do not sway onto the trail side.", "Make a gentle waist-high-to-waist-high swing. Feel the lead sole supporting you as chest, arms and club turn through together. Do not shove your hips toward the target, lock the knee, or hold the club behind you.", "Hold a comfortable finish for two seconds. Balance is useful feedback, not proof of correct sequencing."],
+        "feel": "My lead foot is a stable platform; I turn through it rather than falling backward.",
+        "cue": "Lead foot supports me as I turn through.",
+        "reps": "5 no-ball rehearsals, then 5 small 7i shots at about half effort if comfortable. Short drill-shot distances are expected.",
+        "troubleshooting": "If you wobble, shorten the stagger and swing. If repeated heavy/thin contact continues, rehearse without a ball and use normal stance. Stop for knee, hip or back pain; never twist against a locked knee."
+      },
+      {
+        "id": "normal-transfer", "title": "Normal-stance transfer — Blend the feeling",
+        "purpose": "Purpose of this drill is to carry the lead-support sensation into your actual stance without consciously moving body parts one at a time.",
+        "setup": "Restore your usual foot positions and normal 7i ball position. Keep a comfortable stance and soft knees. There is no stagger or step in this drill.",
+        "steps": ["Make one small rehearsal. Allow pressure to move naturally toward the trail side going back.", "As you change direction, feel the lead sole accept support and turn through in one continuous motion. Do not wait until after impact to get onto the lead side.", "Hit 5 waist-high-to-waist-high shots at comfortable effort using the same single cue. Do not perform a stop-start hips/chest/arms sequence.", "Repeat the staggered-stance and normal-stance blocks once. Finish with 5 normal-stance shots using a target and your usual routine, without a technical drill cue."],
+        "feel": "The lead foot accepts support in transition; the swing flows through rather than becoming a series of commands.",
+        "cue": "Lead foot supports me as I turn through.",
+        "reps": "5 normal-stance half-shots after each staggered-stance block, then 5 cue-free normal shots. Label drill and normal blocks separately in the captured data.",
+        "troubleshooting": "Use a smaller swing if contact deteriorates. Avoid exaggerated lateral sway or spinning the hips while holding the arms back. Launch-monitor results alone cannot prove pressure timing; face-on video helps."
+      }
+    ],
+    "playThrough": "Optional 3–5 holes; compare normal 7i opportunities separately from drill shots. No scoring or short-game coaching required.",
+    "videoNote": "Verified individual video recommendations are still pending. Search links are not specific video prescriptions."
+  },
+  "result": null
+}
