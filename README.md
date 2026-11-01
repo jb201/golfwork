@@ -9,6 +9,7 @@ Open [the home page](index.html) locally over HTTP or at **https://jb201.github.
 - [Record results](coach/import.html): import measured shot CSV or enter an uploaded session summary; no self-grading.
 - [Progress](coach/progress.html): normal 7i session averages, sample sizes, and goal gap.
 - [Session 01](coach/session.html?id=2026-11-01-session-01): the saved first plan, actual practice/play results, and post-lesson review.
+- [Session 02 guide](sessions/session-02-draft/notes/session-guide.md): next-session instructions; undated draft, not yet a calendar entry.
 - [Research & History](coach/library.html): original benchmark dashboard, diagrams, workbooks, sources and prototype history.
 
 The authoritative history is in Git, not localStorage. Each session lives in **sessions/YYYY-MM-DD-slug/session.json** with its dated plan, exact drill instructions, rationale, prior-session reference, and optional results. The manifest is [data/archive.json](data/archive.json); the reusable drill library is [data/drills.json](data/drills.json). Plans copy the library so later instruction changes do not rewrite earlier plans.
