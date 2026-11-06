@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {createPlan, parseCSV, summarizeShots, validateSession} from '../assets/model.js';
+import {createPlan, isExploratory, parseCSV, progressSeries, summarizeShots, validateSession} from '../assets/model.js';
 const drills = JSON.parse(fs.readFileSync(new URL('../data/drills.json', import.meta.url)));
 test('quoted CSV and normal-only averages retain mishits, exclude drill and play', () => {
   const rows = parseCSV('club,block,carry,total,notes\r\n7i,normal,100,110,"heavy, short"\r\n7i,normal,,130,"two ""quotes"""\r\n7i,drill,50,60,x\r\n7i,play,140,150,x\r\ndriver,normal,200,220,x');
@@ -36,4 +36,36 @@ test('empty history is not fabricated and unsafe session IDs fail', () => {
 });
 test('pending symptom follow-up blocks another active drill prescription', () => {
   assert.throws(() => createPlan([{date:'2026-11-01',id:'2026-11-01-session-01',result:{sevenTotal:96},review:{safety:{unresolved:true}}}],drills,'2026-11-08','Next','practice'), /follow-up/);
+});
+test('progress retains exploratory results without treating them as normal-block trend points', () => {
+  const records = [
+    {id:'2026-11-06-experiment',date:'2026-11-06',result:{sevenTotal:99,comparability:'exploratory-not-standardized'}},
+    {id:'2026-11-01-normal',date:'2026-11-01',result:{sevenTotal:120}},
+    {id:'2026-11-04-carry-only',date:'2026-11-04',result:{sevenTotal:null,sevenCarry:110}},
+    {id:'2026-11-02-plan',date:'2026-11-02',result:null}
+  ];
+  const series = progressSeries(records);
+  assert.deepEqual(series.list.map(s => s.id), ['2026-11-01-normal','2026-11-04-carry-only','2026-11-06-experiment']);
+  assert.deepEqual(series.measured.map(s => s.id), ['2026-11-01-normal','2026-11-06-experiment']);
+  assert.deepEqual(series.standardized.map(s => s.id), ['2026-11-01-normal']);
+  assert.deepEqual(series.exploratory.map(s => s.id), ['2026-11-06-experiment']);
+  assert.equal(isExploratory(records[0]), true);
+  assert.equal(isExploratory(records[3]), false);
+});
+test('November 6 archived review preserves the intended plan and all-shot exploratory sample', () => {
+  const read = path => JSON.parse(fs.readFileSync(new URL(path, import.meta.url)));
+  const session = read('../sessions/2026-11-06-session-03/session.json');
+  const intended = read('../sessions/2026-11-02-session-02/session.json');
+  validateSession(session);
+  assert.equal(session.title, 'Session 2 -- revamped, did not follow plan');
+  assert.equal(session.intendedPlanSessionId, intended.id);
+  assert.deepEqual(session.plan, intended.plan);
+  assert.equal(intended.result, null);
+  assert.equal(session.result.shotCount, 161);
+  assert.equal(session.review.clubSummaries.I9.n, 33);
+  assert.equal(session.review.selectedShots.I7.longestCarry[0].carryYd, 141.8);
+  assert.equal(session.review.selectedShots.I7.fastestBallSpeed[0].ballSpeedMph, 104.3);
+  assert.equal(session.review.coachingAnalysis.length, 5);
+  assert.equal(progressSeries([session]).standardized.length, 0);
+  assert.equal(progressSeries([session]).exploratory.length, 1);
 });

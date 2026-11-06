@@ -33,6 +33,12 @@
 
 The publication script accepts a downloaded bundle `{ "schemaVersion": 1, "session": { ... } }`. It adds the session directory and manifest entry, rejects unsafe paths, preserves old plans, and requires an explicit `--replace-results` for corrections to already recorded results. Publish a referenced earlier session first. Git history preserves result corrections.
 
+An unplanned exploratory session can first be preserved in a dated session folder with its original export in `sources/` and a provisional `review.json`. Do not invent a prior plan or mark an earlier tentative plan completed. If the player requests a journal entry before practice/drill boundaries are known, record the all-shot aggregate as an explicitly exploratory `uploaded-summary` with its sample context; never relabel unclassified shots as normal CSV rows. A copied original plan can be retained as intended-but-not-followed work, linked by `intendedPlanSessionId`, while the original record remains unchanged.
+
+The November 6 review is reproduced with `python scripts/review_session_03.py`, using player observations and a shot-key-specific club correction in that session's `notes/observations.json`, plus the saved interpretation in `notes/analysis.json`. Add `--publish` to record that reviewed session in the local archive; the script does not commit or push, and corrections to an already recorded result still require the publication script's explicit correction workflow. The raw CSV remains unchanged. Its four 40-shot windows cover only the originally I7-labeled rows and describe chronology, not confirmed experiment blocks; the corrected initial shot is included in the overall I7 summary. Longest-carry and fastest-ball-speed selections are illustrative rankings, never replacements for all-shot averages.
+
+Progress shows exploratory results as separate amber markers with their sample context, not a connected normal-block trend or a standardized gap-to-goal check. Reviews appear on both Progress and the full session page. Browser result edits preserve an existing exploratory designation and do not regenerate the source-based review; review corrections need workspace analysis and a reviewed bundle.
+
 ## Shot CSV
 
 Distances must be **yards**. Supported columns are `club,block,carry,total`; extra columns are accepted by the parser but not retained in the normalized shots. Quoted CSV cells are supported. Retain your original device export separately if you need additional metrics.

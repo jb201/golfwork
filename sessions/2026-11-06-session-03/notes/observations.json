@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-11-06",
+  "source": "Player discussion after CSV upload",
+  "clubCorrections": [
+    {
+      "shotKey": "6cf9c0fa-988a-4b25-a77c-8be6eaf693a2",
+      "exportedClub": "DR",
+      "actualClub": "I7",
+      "reason": "Player confirmed the driver-labeled shot was a 7-iron."
+    }
+  ],
+  "reportedSequence": [
+    "Initial feel: always keep rotating.",
+    "Reviewed down-the-line swings; the swing-analysis feedback repeatedly identified lack of pelvic rotation at impact as the biggest flaw.",
+    "Moved on to trying to hit with more speed.",
+    "Set up slightly farther from the ball with softer, more bent knees and an athletic, about-to-jump feeling.",
+    "Felt the backswing start more outside; player reported video still showed the club moving too far inside too early.",
+    "Reported a steeper/more outside start-of-downswing thought producing a better plane.",
+    "Used 'wait, wait' and let the club 'float' at the top, described as a short pause; player believes this accompanied some of the longest/fastest I7 and I9 shots.",
+    "Still reported chicken-winging through impact despite high ball speed on some strikes.",
+    "Player felt soft knees, slightly more weight over the toes and standing farther from the ball allowed greater use of the ground.",
+    "Also experimented with a hip bump, which still felt relevant.",
+    "Felt like squatting toward the ball and then throwing force back while swinging through; these sensations made speed feel easier.",
+    "Preference for this review: preserve the promising speed-producing swing and investigate small delivery refinements rather than assume a complete rebuild is needed."
+  ],
+  "interpretationLimits": [
+    "Exact shot/time boundaries for the feels are not supplied.",
+    "Video and the swing-analysis report have not been uploaded or independently reviewed for this session.",
+    "Pelvic rotation, takeaway plane and chicken-wing observations are player-reported, not measured by the shot CSV.",
+    "Several setup, effort and swing thoughts changed; the pause cannot yet be isolated as the cause of improved shots."
+  ]
+}

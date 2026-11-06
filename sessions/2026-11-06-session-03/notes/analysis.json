@@ -1,0 +1,70 @@
+{
+  "title": "Session 2 review -- Keep the speed; refine delivery",
+  "status": "Exploratory session reviewed; original plan not followed. Promising speed and flight, but delivery and exact feel-to-shot timing remain unresolved.",
+  "coachingAnalysis": [
+    {
+      "title": "What today establishes",
+      "paragraphs": [
+        "There is useful ball-speed capacity worth preserving: nine 7i shots carried at least 130 yards, eighteen carried at least 120, and ten recorded at least 95 mph ball speed. Five 7i totals reached 145 yards, but that is not a 145-yard session average.",
+        "The 14:48:41 7i is the strongest speed-plus-flight example: 104.3 mph ball speed, 140.6 yards carry, 151.4 total, 29.8 yards peak height and 3.3 yards right offline. The longest 7i carried 141.8 yards at 14:50:54. These are substantial airborne shots rather than low runners.",
+        "Average 7i peak height across the four originally I7-labeled chronological windows rose from 8.6 to 10.9 to 14.0 to 16.3 yards. Carry and ball speed also rose. Different intentions, order and effort prevent attributing that rise to one feel.",
+        "All 161 actual 7i shots, including the initial mislabeled shot and mishits, average 78.7 yards carry / 99.0 total. That mixed-practice average describes the session, not a standardized full-swing benchmark or proof of regression. This is the longest 7i carry in the two preserved completed practice exports, not proof about all prior golf sessions."
+      ]
+    },
+    {
+      "title": "Where I agree -- and where I would push back",
+      "paragraphs": [
+        "A complete rebuild is not justified merely because the reported path is outside-in. A preserve-and-refine approach is a reasonable working hypothesis: keep the comfortable rhythm and useful flight while investigating the delivery that accompanies them.",
+        "The long shots demonstrate recorded ball speed and distance, not independently measured clubhead speed, efficient ground-force production or centered strike. Club speed, smash factor and impact-location fields are unavailable.",
+        "Getting 'a bit more inside' is not automatically the missing small fix. The long 7i examples still report roughly 9.5-12.3 degrees outside-in; reducing that may require more than a tiny cue change. A functional, repeatable fade is also acceptable: an inside-out number is not the goal by itself.",
+        "Clubface direction must be assessed alongside path and strike. At 14:48:41 the device reports 9.5 degrees outside-in and 7.0 degrees open face-to-path, yet the endpoint is only 3.3 yards right. That is not evidence of a neutral face/path relationship. Moving path while leaving face direction unchanged can change curvature or create a different miss.",
+        "The earlier inside takeaway and a steeper/outside downswing thought are different phases. Do not turn an outside takeaway feel into an instruction to send the downswing farther outside; video is needed to distinguish feel from actual motion."
+      ]
+    },
+    {
+      "title": "Wait/float and continuous rotation",
+      "paragraphs": [
+        "The wait/float feel is promising if it makes the transition less rushed while allowing the club to accelerate later. Your feedback supports it as a useful sensation, but there are no shot boundaries proving it caused the best strikes.",
+        "Treat it as a rhythm intention, not a requirement to freeze the whole body, hold the arms back or deliberately delay every segment. TPI describes sequencing as time-varying segment speeds, including the pelvis slowing before impact, not every body part accelerating continuously.",
+        "The repeated pelvic-rotation-at-impact feedback is a reason to inspect video, not a complete diagnosis. A static impact position is different from rotation speed and timing. Neither the CSV nor a single impact frame establishes the full sequence.",
+        "Chicken-winging should be reviewed as part of the whole delivery, not corrected by forcibly straightening the lead arm. The supplied evidence does not identify its cause."
+      ]
+    },
+    {
+      "title": "Athletic setup, ground use, hip bump and squat",
+      "paragraphs": [
+        "Soft knees, a comfortable athletic address and room to swing may have helped speed feel easier. Preserve that subjective finding, without assuming more knee bend, more toe pressure or greater distance from the ball must be better.",
+        "Feeling a squat and a push through is compatible with a dynamic swing, but it does not measure ground reaction forces, pressure timing or how much force reached the club. Ball speed alone cannot identify which mechanism contributed.",
+        "Do not exaggerate the squat, jump, lean onto the toes or throw your body backward to recreate a fast number. Keep support and balance comfortable; the direction and amount of the reported 'throwing force back' sensation need clarification rather than a literal prescription.",
+        "A hip-bump sensation could represent useful transition support or excessive lateral motion. We cannot choose between those from this export. Inspect face-on video alongside down-the-line footage before prescribing more bump, more rotation or more crouch."
+      ]
+    },
+    {
+      "title": "A refinement approach, not a restart",
+      "paragraphs": [
+        "First identify the actual motion in video near the strong 14:48-14:53 7i period and the long-flight 9i examples. Confirm handedness, device settings, camera alignment and when the wait/float feel started.",
+        "Keep the comfortable current setup and rhythm as the reference. Choose only one modest, video-supported delivery adjustment; do not combine a new hip bump, squat, takeaway change and extra speed in the same comparison.",
+        "A future small comparison, once comfortable and the earlier comfort follow-up is clarified, could use five reference shots, five with that single adjustment and five back to the reference, with rests and the same intended effort. Keep every shot and record exact boundaries.",
+        "Judge whether useful ball speed and airborne carry remain while face/path variation, strike evidence and directional consistency improve. Do not chase a positive path number or make the goal depend on one longest shot. A 15-shot comparison is preliminary evidence, not proof of lasting improvement."
+      ]
+    }
+  ],
+  "nextSteps": [
+    "Clarify the outstanding prior-session comfort follow-up before progressing to an active drill prescription; this review is not clearance to force ground-action movements.",
+    "Locate video around 14:48:41 and 14:50:54 for 7i, and 15:04:15 and 15:05:48 for 9i if recordings exist.",
+    "Confirm device, handedness and the approximate start of the wait/float feel.",
+    "Use that evidence to select one delivery refinement while preserving comfortable rhythm and speed; no complete rebuild is prescribed."
+  ],
+  "references": [
+    {
+      "title": "TPI -- Kinematic Sequence Revisited",
+      "url": "https://cdn.site.mytpi.com/articles/biomechanics/kinematic-sequence-revisited",
+      "context": "Segment speed and timing are not the same as static impact rotation. General biomechanics, not an individualized diagnosis."
+    },
+    {
+      "title": "Trackman -- Face to Path",
+      "url": "https://www.trackman.com/blog/face-to-path",
+      "context": "Face-to-path describes a relationship, not target alignment; curvature explanations assume centered contact. Device identification remains unconfirmed."
+    }
+  ]
+}

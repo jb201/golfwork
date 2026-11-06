@@ -12,6 +12,14 @@ export function mean(values) {
 export function completed(sessions) {
   return sessions.filter(s => s.result).sort((a, b) => a.date.localeCompare(b.date) || a.id.localeCompare(b.id));
 }
+export function isExploratory(session) {
+  return session.result?.comparability === 'exploratory-not-standardized';
+}
+export function progressSeries(sessions) {
+  const list = completed(sessions);
+  const measured = list.filter(s => typeof s.result.sevenTotal === 'number' && Number.isFinite(s.result.sevenTotal));
+  return {list, measured, standardized: measured.filter(s => !isExploratory(s)), exploratory: measured.filter(isExploratory)};
+}
 export function validateSession(s) {
   if (!s || s.schemaVersion !== 1 || !/^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/.test(s.id || '')) throw new Error('Invalid session ID or schema.');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(s.date || '') || new Date(s.date).toISOString().slice(0, 10) !== s.date || !s.id.startsWith(s.date + '-')) throw new Error('Invalid session date.');

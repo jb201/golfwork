@@ -21,6 +21,12 @@
       "date": "2026-11-02",
       "title": "Session 02 — A natural swing, a repeatable strike",
       "path": "sessions/2026-11-02-session-02/session.json"
+    },
+    {
+      "id": "2026-11-06-session-03",
+      "date": "2026-11-06",
+      "title": "Session 2 -- revamped, did not follow plan",
+      "path": "sessions/2026-11-06-session-03/session.json"
     }
   ]
 }

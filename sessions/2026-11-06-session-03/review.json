@@ -1,0 +1,1540 @@
+{
+  "title": "Session 2 review -- Keep the speed; refine delivery",
+  "status": "Exploratory session reviewed; original plan not followed. Promising speed and flight, but delivery and exact feel-to-shot timing remain unresolved.",
+  "date": "2026-11-06",
+  "sources": [
+    {
+      "path": "sources/PlayerShots_2026-11-06_15-21.csv",
+      "rows": 194,
+      "sha256": "0f1e9082f8258e80da852d8b241b3d6e81cc0733b13e98cda35dc7efdb7b9989"
+    }
+  ],
+  "method": [
+    "Sort by Shot Time ascending; the export is reverse chronological.",
+    "Chronological ordinals are reconstructed row positions, not device shot numbers.",
+    "Keep every recorded shot and all mishits; apply the player-confirmed DR-to-I7 correction without modifying the original export.",
+    "Club summaries use corrected actual clubs; exported label summaries and runs are retained separately for audit.",
+    "Divide the 160 originally I7-labeled shots into four consecutive 40-shot windows solely to describe chronology, not experiment boundaries. The initial corrected I7 is included in the overall 161-shot summary but not these windows.",
+    "Selected shots are the top five per actual club by carry and separately by ball speed, with descending ranking and chronological tie order. No shots are removed from session averages.",
+    "Distances are yards. Standard deviations are sample standard deviations.",
+    "Offline is reported endpoint distance from the device target line, not carry-only dispersion.",
+    "All corrected I7 shots form an exploratory aggregate with unclassified shot purposes, not a normal-block benchmark. Selected shots never replace the all-shot result."
+  ],
+  "observations": {
+    "recordedAt": "2026-11-06",
+    "source": "Player discussion after CSV upload",
+    "clubCorrections": [
+      {
+        "shotKey": "6cf9c0fa-988a-4b25-a77c-8be6eaf693a2",
+        "exportedClub": "DR",
+        "actualClub": "I7",
+        "reason": "Player confirmed the driver-labeled shot was a 7-iron."
+      }
+    ],
+    "reportedSequence": [
+      "Initial feel: always keep rotating.",
+      "Reviewed down-the-line swings; the swing-analysis feedback repeatedly identified lack of pelvic rotation at impact as the biggest flaw.",
+      "Moved on to trying to hit with more speed.",
+      "Set up slightly farther from the ball with softer, more bent knees and an athletic, about-to-jump feeling.",
+      "Felt the backswing start more outside; player reported video still showed the club moving too far inside too early.",
+      "Reported a steeper/more outside start-of-downswing thought producing a better plane.",
+      "Used 'wait, wait' and let the club 'float' at the top, described as a short pause; player believes this accompanied some of the longest/fastest I7 and I9 shots.",
+      "Still reported chicken-winging through impact despite high ball speed on some strikes.",
+      "Player felt soft knees, slightly more weight over the toes and standing farther from the ball allowed greater use of the ground.",
+      "Also experimented with a hip bump, which still felt relevant.",
+      "Felt like squatting toward the ball and then throwing force back while swinging through; these sensations made speed feel easier.",
+      "Preference for this review: preserve the promising speed-producing swing and investigate small delivery refinements rather than assume a complete rebuild is needed."
+    ],
+    "interpretationLimits": [
+      "Exact shot/time boundaries for the feels are not supplied.",
+      "Video and the swing-analysis report have not been uploaded or independently reviewed for this session.",
+      "Pelvic rotation, takeaway plane and chicken-wing observations are player-reported, not measured by the shot CSV.",
+      "Several setup, effort and swing thoughts changed; the pause cannot yet be isolated as the cause of improved shots."
+    ]
+  },
+  "coachingAnalysis": [
+    {
+      "title": "What today establishes",
+      "paragraphs": [
+        "There is useful ball-speed capacity worth preserving: nine 7i shots carried at least 130 yards, eighteen carried at least 120, and ten recorded at least 95 mph ball speed. Five 7i totals reached 145 yards, but that is not a 145-yard session average.",
+        "The 14:48:41 7i is the strongest speed-plus-flight example: 104.3 mph ball speed, 140.6 yards carry, 151.4 total, 29.8 yards peak height and 3.3 yards right offline. The longest 7i carried 141.8 yards at 14:50:54. These are substantial airborne shots rather than low runners.",
+        "Average 7i peak height across the four originally I7-labeled chronological windows rose from 8.6 to 10.9 to 14.0 to 16.3 yards. Carry and ball speed also rose. Different intentions, order and effort prevent attributing that rise to one feel.",
+        "All 161 actual 7i shots, including the initial mislabeled shot and mishits, average 78.7 yards carry / 99.0 total. That mixed-practice average describes the session, not a standardized full-swing benchmark or proof of regression. This is the longest 7i carry in the two preserved completed practice exports, not proof about all prior golf sessions."
+      ]
+    },
+    {
+      "title": "Where I agree -- and where I would push back",
+      "paragraphs": [
+        "A complete rebuild is not justified merely because the reported path is outside-in. A preserve-and-refine approach is a reasonable working hypothesis: keep the comfortable rhythm and useful flight while investigating the delivery that accompanies them.",
+        "The long shots demonstrate recorded ball speed and distance, not independently measured clubhead speed, efficient ground-force production or centered strike. Club speed, smash factor and impact-location fields are unavailable.",
+        "Getting 'a bit more inside' is not automatically the missing small fix. The long 7i examples still report roughly 9.5-12.3 degrees outside-in; reducing that may require more than a tiny cue change. A functional, repeatable fade is also acceptable: an inside-out number is not the goal by itself.",
+        "Clubface direction must be assessed alongside path and strike. At 14:48:41 the device reports 9.5 degrees outside-in and 7.0 degrees open face-to-path, yet the endpoint is only 3.3 yards right. That is not evidence of a neutral face/path relationship. Moving path while leaving face direction unchanged can change curvature or create a different miss.",
+        "The earlier inside takeaway and a steeper/outside downswing thought are different phases. Do not turn an outside takeaway feel into an instruction to send the downswing farther outside; video is needed to distinguish feel from actual motion."
+      ]
+    },
+    {
+      "title": "Wait/float and continuous rotation",
+      "paragraphs": [
+        "The wait/float feel is promising if it makes the transition less rushed while allowing the club to accelerate later. Your feedback supports it as a useful sensation, but there are no shot boundaries proving it caused the best strikes.",
+        "Treat it as a rhythm intention, not a requirement to freeze the whole body, hold the arms back or deliberately delay every segment. TPI describes sequencing as time-varying segment speeds, including the pelvis slowing before impact, not every body part accelerating continuously.",
+        "The repeated pelvic-rotation-at-impact feedback is a reason to inspect video, not a complete diagnosis. A static impact position is different from rotation speed and timing. Neither the CSV nor a single impact frame establishes the full sequence.",
+        "Chicken-winging should be reviewed as part of the whole delivery, not corrected by forcibly straightening the lead arm. The supplied evidence does not identify its cause."
+      ]
+    },
+    {
+      "title": "Athletic setup, ground use, hip bump and squat",
+      "paragraphs": [
+        "Soft knees, a comfortable athletic address and room to swing may have helped speed feel easier. Preserve that subjective finding, without assuming more knee bend, more toe pressure or greater distance from the ball must be better.",
+        "Feeling a squat and a push through is compatible with a dynamic swing, but it does not measure ground reaction forces, pressure timing or how much force reached the club. Ball speed alone cannot identify which mechanism contributed.",
+        "Do not exaggerate the squat, jump, lean onto the toes or throw your body backward to recreate a fast number. Keep support and balance comfortable; the direction and amount of the reported 'throwing force back' sensation need clarification rather than a literal prescription.",
+        "A hip-bump sensation could represent useful transition support or excessive lateral motion. We cannot choose between those from this export. Inspect face-on video alongside down-the-line footage before prescribing more bump, more rotation or more crouch."
+      ]
+    },
+    {
+      "title": "A refinement approach, not a restart",
+      "paragraphs": [
+        "First identify the actual motion in video near the strong 14:48-14:53 7i period and the long-flight 9i examples. Confirm handedness, device settings, camera alignment and when the wait/float feel started.",
+        "Keep the comfortable current setup and rhythm as the reference. Choose only one modest, video-supported delivery adjustment; do not combine a new hip bump, squat, takeaway change and extra speed in the same comparison.",
+        "A future small comparison, once comfortable and the earlier comfort follow-up is clarified, could use five reference shots, five with that single adjustment and five back to the reference, with rests and the same intended effort. Keep every shot and record exact boundaries.",
+        "Judge whether useful ball speed and airborne carry remain while face/path variation, strike evidence and directional consistency improve. Do not chase a positive path number or make the goal depend on one longest shot. A 15-shot comparison is preliminary evidence, not proof of lasting improvement."
+      ]
+    }
+  ],
+  "nextSteps": [
+    "Clarify the outstanding prior-session comfort follow-up before progressing to an active drill prescription; this review is not clearance to force ground-action movements.",
+    "Locate video around 14:48:41 and 14:50:54 for 7i, and 15:04:15 and 15:05:48 for 9i if recordings exist.",
+    "Confirm device, handedness and the approximate start of the wait/float feel.",
+    "Use that evidence to select one delivery refinement while preserving comfortable rhythm and speed; no complete rebuild is prescribed."
+  ],
+  "references": [
+    {
+      "title": "TPI -- Kinematic Sequence Revisited",
+      "url": "https://cdn.site.mytpi.com/articles/biomechanics/kinematic-sequence-revisited",
+      "context": "Segment speed and timing are not the same as static impact rotation. General biomechanics, not an individualized diagnosis."
+    },
+    {
+      "title": "Trackman -- Face to Path",
+      "url": "https://www.trackman.com/blog/face-to-path",
+      "context": "Face-to-path describes a relationship, not target alignment; curvature explanations assume centered contact. Device identification remains unconfirmed."
+    }
+  ],
+  "clubSummaries": {
+    "I7": {
+      "n": 161,
+      "firstShotTime": "13:44:47.387",
+      "lastShotTime": "14:53:13.304",
+      "metrics": {
+        "carryYd": {
+          "n": 161,
+          "mean": 78.72,
+          "median": 83.4,
+          "sampleSd": 35.2,
+          "min": 5.5,
+          "max": 141.8
+        },
+        "totalYd": {
+          "n": 161,
+          "mean": 99.007,
+          "median": 99.1,
+          "sampleSd": 26.639,
+          "min": 26.6,
+          "max": 155.0
+        },
+        "ballSpeedMph": {
+          "n": 161,
+          "mean": 75.414,
+          "median": 75.3,
+          "sampleSd": 13.763,
+          "min": 30.1,
+          "max": 104.3
+        },
+        "launchDeg": {
+          "n": 161,
+          "mean": 19.334,
+          "median": 22.3,
+          "sampleSd": 7.777,
+          "min": 2.0,
+          "max": 29.1
+        },
+        "peakHeightYd": {
+          "n": 161,
+          "mean": 12.383,
+          "median": 13.0,
+          "sampleSd": 8.279,
+          "min": 0.1,
+          "max": 31.3
+        },
+        "descentDeg": {
+          "n": 161,
+          "mean": 31.581,
+          "median": 36.0,
+          "sampleSd": 13.635,
+          "min": 3.1,
+          "max": 51.6
+        },
+        "backSpinRpm": {
+          "n": 161,
+          "mean": 4219.745,
+          "median": 4577.0,
+          "sampleSd": 2279.841,
+          "min": -1264.0,
+          "max": 11223.0
+        },
+        "totalMinusCarryYd": {
+          "n": 161,
+          "mean": 20.287,
+          "median": 13.8,
+          "sampleSd": 16.919,
+          "min": 2.1999999999999886,
+          "max": 75.9
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 148,
+        "insideOutCount": 10,
+        "zeroUnqualifiedCount": 3,
+        "meanAbsoluteDegIncludingZeros": 10.424
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.037,
+        "within10YdCount": 116,
+        "within20YdCount": 149,
+        "leftCount": 76,
+        "rightCount": 85
+      },
+      "launchBelow10DegCount": 31,
+      "negativeBackSpinCount": 13
+    },
+    "I9": {
+      "n": 33,
+      "firstShotTime": "14:58:16.783",
+      "lastShotTime": "15:10:35.658",
+      "metrics": {
+        "carryYd": {
+          "n": 33,
+          "mean": 98.033,
+          "median": 103.4,
+          "sampleSd": 21.235,
+          "min": 19.2,
+          "max": 127.9
+        },
+        "totalYd": {
+          "n": 33,
+          "mean": 113.733,
+          "median": 113.6,
+          "sampleSd": 16.876,
+          "min": 84.4,
+          "max": 158.0
+        },
+        "ballSpeedMph": {
+          "n": 33,
+          "mean": 85.439,
+          "median": 86.8,
+          "sampleSd": 9.608,
+          "min": 67.0,
+          "max": 109.1
+        },
+        "launchDeg": {
+          "n": 33,
+          "mean": 22.388,
+          "median": 26.2,
+          "sampleSd": 8.327,
+          "min": 2.4,
+          "max": 30.4
+        },
+        "peakHeightYd": {
+          "n": 33,
+          "mean": 18.739,
+          "median": 20.8,
+          "sampleSd": 9.454,
+          "min": 0.3,
+          "max": 32.8
+        },
+        "descentDeg": {
+          "n": 33,
+          "mean": 39.315,
+          "median": 45.9,
+          "sampleSd": 14.286,
+          "min": 5.0,
+          "max": 52.3
+        },
+        "backSpinRpm": {
+          "n": 33,
+          "mean": 6315.394,
+          "median": 7475.0,
+          "sampleSd": 2924.03,
+          "min": -1259.0,
+          "max": 10073.0
+        },
+        "totalMinusCarryYd": {
+          "n": 33,
+          "mean": 15.7,
+          "median": 8.5,
+          "sampleSd": 17.449,
+          "min": 1.0999999999999943,
+          "max": 65.2
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 30,
+        "insideOutCount": 2,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 8.903
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.988,
+        "within10YdCount": 19,
+        "within20YdCount": 31,
+        "leftCount": 20,
+        "rightCount": 13
+      },
+      "launchBelow10DegCount": 4,
+      "negativeBackSpinCount": 2
+    }
+  },
+  "exportedClubSummaries": {
+    "DR": {
+      "n": 1,
+      "firstShotTime": "13:44:47.387",
+      "lastShotTime": "13:44:47.387",
+      "metrics": {
+        "carryYd": {
+          "n": 1,
+          "mean": 7.7,
+          "median": 7.7,
+          "sampleSd": null,
+          "min": 7.7,
+          "max": 7.7
+        },
+        "totalYd": {
+          "n": 1,
+          "mean": 26.6,
+          "median": 26.6,
+          "sampleSd": null,
+          "min": 26.6,
+          "max": 26.6
+        },
+        "ballSpeedMph": {
+          "n": 1,
+          "mean": 30.1,
+          "median": 30.1,
+          "sampleSd": null,
+          "min": 30.1,
+          "max": 30.1
+        },
+        "launchDeg": {
+          "n": 1,
+          "mean": 9.9,
+          "median": 9.9,
+          "sampleSd": null,
+          "min": 9.9,
+          "max": 9.9
+        },
+        "peakHeightYd": {
+          "n": 1,
+          "mean": 0.3,
+          "median": 0.3,
+          "sampleSd": null,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "descentDeg": {
+          "n": 1,
+          "mean": 12.6,
+          "median": 12.6,
+          "sampleSd": null,
+          "min": 12.6,
+          "max": 12.6
+        },
+        "backSpinRpm": {
+          "n": 1,
+          "mean": 308.0,
+          "median": 308.0,
+          "sampleSd": null,
+          "min": 308.0,
+          "max": 308.0
+        },
+        "totalMinusCarryYd": {
+          "n": 1,
+          "mean": 18.9,
+          "median": 18.9,
+          "sampleSd": null,
+          "min": 18.900000000000002,
+          "max": 18.900000000000002
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 0,
+        "insideOutCount": 1,
+        "zeroUnqualifiedCount": 0,
+        "meanAbsoluteDegIncludingZeros": 8.9
+      },
+      "offline": {
+        "meanAbsoluteYd": 0.7,
+        "within10YdCount": 1,
+        "within20YdCount": 1,
+        "leftCount": 1,
+        "rightCount": 0
+      },
+      "launchBelow10DegCount": 1,
+      "negativeBackSpinCount": 0
+    },
+    "I7": {
+      "n": 160,
+      "firstShotTime": "13:45:26.406",
+      "lastShotTime": "14:53:13.304",
+      "metrics": {
+        "carryYd": {
+          "n": 160,
+          "mean": 79.164,
+          "median": 83.8,
+          "sampleSd": 34.856,
+          "min": 5.5,
+          "max": 141.8
+        },
+        "totalYd": {
+          "n": 160,
+          "mean": 99.459,
+          "median": 99.3,
+          "sampleSd": 26.095,
+          "min": 26.8,
+          "max": 155.0
+        },
+        "ballSpeedMph": {
+          "n": 160,
+          "mean": 75.697,
+          "median": 75.5,
+          "sampleSd": 13.327,
+          "min": 42.8,
+          "max": 104.3
+        },
+        "launchDeg": {
+          "n": 160,
+          "mean": 19.393,
+          "median": 22.3,
+          "sampleSd": 7.765,
+          "min": 2.0,
+          "max": 29.1
+        },
+        "peakHeightYd": {
+          "n": 160,
+          "mean": 12.458,
+          "median": 13.05,
+          "sampleSd": 8.25,
+          "min": 0.1,
+          "max": 31.3
+        },
+        "descentDeg": {
+          "n": 160,
+          "mean": 31.699,
+          "median": 36.05,
+          "sampleSd": 13.594,
+          "min": 3.1,
+          "max": 51.6
+        },
+        "backSpinRpm": {
+          "n": 160,
+          "mean": 4244.194,
+          "median": 4589.0,
+          "sampleSd": 2265.729,
+          "min": -1264.0,
+          "max": 11223.0
+        },
+        "totalMinusCarryYd": {
+          "n": 160,
+          "mean": 20.296,
+          "median": 13.8,
+          "sampleSd": 16.972,
+          "min": 2.1999999999999886,
+          "max": 75.9
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 148,
+        "insideOutCount": 9,
+        "zeroUnqualifiedCount": 3,
+        "meanAbsoluteDegIncludingZeros": 10.433
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.082,
+        "within10YdCount": 115,
+        "within20YdCount": 148,
+        "leftCount": 75,
+        "rightCount": 85
+      },
+      "launchBelow10DegCount": 30,
+      "negativeBackSpinCount": 13
+    },
+    "I9": {
+      "n": 33,
+      "firstShotTime": "14:58:16.783",
+      "lastShotTime": "15:10:35.658",
+      "metrics": {
+        "carryYd": {
+          "n": 33,
+          "mean": 98.033,
+          "median": 103.4,
+          "sampleSd": 21.235,
+          "min": 19.2,
+          "max": 127.9
+        },
+        "totalYd": {
+          "n": 33,
+          "mean": 113.733,
+          "median": 113.6,
+          "sampleSd": 16.876,
+          "min": 84.4,
+          "max": 158.0
+        },
+        "ballSpeedMph": {
+          "n": 33,
+          "mean": 85.439,
+          "median": 86.8,
+          "sampleSd": 9.608,
+          "min": 67.0,
+          "max": 109.1
+        },
+        "launchDeg": {
+          "n": 33,
+          "mean": 22.388,
+          "median": 26.2,
+          "sampleSd": 8.327,
+          "min": 2.4,
+          "max": 30.4
+        },
+        "peakHeightYd": {
+          "n": 33,
+          "mean": 18.739,
+          "median": 20.8,
+          "sampleSd": 9.454,
+          "min": 0.3,
+          "max": 32.8
+        },
+        "descentDeg": {
+          "n": 33,
+          "mean": 39.315,
+          "median": 45.9,
+          "sampleSd": 14.286,
+          "min": 5.0,
+          "max": 52.3
+        },
+        "backSpinRpm": {
+          "n": 33,
+          "mean": 6315.394,
+          "median": 7475.0,
+          "sampleSd": 2924.03,
+          "min": -1259.0,
+          "max": 10073.0
+        },
+        "totalMinusCarryYd": {
+          "n": 33,
+          "mean": 15.7,
+          "median": 8.5,
+          "sampleSd": 17.449,
+          "min": 1.0999999999999943,
+          "max": 65.2
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 30,
+        "insideOutCount": 2,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 8.903
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.988,
+        "within10YdCount": 19,
+        "within20YdCount": 31,
+        "leftCount": 20,
+        "rightCount": 13
+      },
+      "launchBelow10DegCount": 4,
+      "negativeBackSpinCount": 2
+    }
+  },
+  "chronologicalClubRuns": [
+    {
+      "clubLabel": "DR",
+      "chronologicalStart": 1,
+      "chronologicalEnd": 1,
+      "n": 1,
+      "firstShotTime": "13:44:47.387",
+      "lastShotTime": "13:44:47.387",
+      "metrics": {
+        "carryYd": {
+          "n": 1,
+          "mean": 7.7,
+          "median": 7.7,
+          "sampleSd": null,
+          "min": 7.7,
+          "max": 7.7
+        },
+        "totalYd": {
+          "n": 1,
+          "mean": 26.6,
+          "median": 26.6,
+          "sampleSd": null,
+          "min": 26.6,
+          "max": 26.6
+        },
+        "ballSpeedMph": {
+          "n": 1,
+          "mean": 30.1,
+          "median": 30.1,
+          "sampleSd": null,
+          "min": 30.1,
+          "max": 30.1
+        },
+        "launchDeg": {
+          "n": 1,
+          "mean": 9.9,
+          "median": 9.9,
+          "sampleSd": null,
+          "min": 9.9,
+          "max": 9.9
+        },
+        "peakHeightYd": {
+          "n": 1,
+          "mean": 0.3,
+          "median": 0.3,
+          "sampleSd": null,
+          "min": 0.3,
+          "max": 0.3
+        },
+        "descentDeg": {
+          "n": 1,
+          "mean": 12.6,
+          "median": 12.6,
+          "sampleSd": null,
+          "min": 12.6,
+          "max": 12.6
+        },
+        "backSpinRpm": {
+          "n": 1,
+          "mean": 308.0,
+          "median": 308.0,
+          "sampleSd": null,
+          "min": 308.0,
+          "max": 308.0
+        },
+        "totalMinusCarryYd": {
+          "n": 1,
+          "mean": 18.9,
+          "median": 18.9,
+          "sampleSd": null,
+          "min": 18.900000000000002,
+          "max": 18.900000000000002
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 0,
+        "insideOutCount": 1,
+        "zeroUnqualifiedCount": 0,
+        "meanAbsoluteDegIncludingZeros": 8.9
+      },
+      "offline": {
+        "meanAbsoluteYd": 0.7,
+        "within10YdCount": 1,
+        "within20YdCount": 1,
+        "leftCount": 1,
+        "rightCount": 0
+      },
+      "launchBelow10DegCount": 1,
+      "negativeBackSpinCount": 0
+    },
+    {
+      "clubLabel": "I7",
+      "chronologicalStart": 2,
+      "chronologicalEnd": 161,
+      "n": 160,
+      "firstShotTime": "13:45:26.406",
+      "lastShotTime": "14:53:13.304",
+      "metrics": {
+        "carryYd": {
+          "n": 160,
+          "mean": 79.164,
+          "median": 83.8,
+          "sampleSd": 34.856,
+          "min": 5.5,
+          "max": 141.8
+        },
+        "totalYd": {
+          "n": 160,
+          "mean": 99.459,
+          "median": 99.3,
+          "sampleSd": 26.095,
+          "min": 26.8,
+          "max": 155.0
+        },
+        "ballSpeedMph": {
+          "n": 160,
+          "mean": 75.697,
+          "median": 75.5,
+          "sampleSd": 13.327,
+          "min": 42.8,
+          "max": 104.3
+        },
+        "launchDeg": {
+          "n": 160,
+          "mean": 19.393,
+          "median": 22.3,
+          "sampleSd": 7.765,
+          "min": 2.0,
+          "max": 29.1
+        },
+        "peakHeightYd": {
+          "n": 160,
+          "mean": 12.458,
+          "median": 13.05,
+          "sampleSd": 8.25,
+          "min": 0.1,
+          "max": 31.3
+        },
+        "descentDeg": {
+          "n": 160,
+          "mean": 31.699,
+          "median": 36.05,
+          "sampleSd": 13.594,
+          "min": 3.1,
+          "max": 51.6
+        },
+        "backSpinRpm": {
+          "n": 160,
+          "mean": 4244.194,
+          "median": 4589.0,
+          "sampleSd": 2265.729,
+          "min": -1264.0,
+          "max": 11223.0
+        },
+        "totalMinusCarryYd": {
+          "n": 160,
+          "mean": 20.296,
+          "median": 13.8,
+          "sampleSd": 16.972,
+          "min": 2.1999999999999886,
+          "max": 75.9
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 148,
+        "insideOutCount": 9,
+        "zeroUnqualifiedCount": 3,
+        "meanAbsoluteDegIncludingZeros": 10.433
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.082,
+        "within10YdCount": 115,
+        "within20YdCount": 148,
+        "leftCount": 75,
+        "rightCount": 85
+      },
+      "launchBelow10DegCount": 30,
+      "negativeBackSpinCount": 13
+    },
+    {
+      "clubLabel": "I9",
+      "chronologicalStart": 162,
+      "chronologicalEnd": 194,
+      "n": 33,
+      "firstShotTime": "14:58:16.783",
+      "lastShotTime": "15:10:35.658",
+      "metrics": {
+        "carryYd": {
+          "n": 33,
+          "mean": 98.033,
+          "median": 103.4,
+          "sampleSd": 21.235,
+          "min": 19.2,
+          "max": 127.9
+        },
+        "totalYd": {
+          "n": 33,
+          "mean": 113.733,
+          "median": 113.6,
+          "sampleSd": 16.876,
+          "min": 84.4,
+          "max": 158.0
+        },
+        "ballSpeedMph": {
+          "n": 33,
+          "mean": 85.439,
+          "median": 86.8,
+          "sampleSd": 9.608,
+          "min": 67.0,
+          "max": 109.1
+        },
+        "launchDeg": {
+          "n": 33,
+          "mean": 22.388,
+          "median": 26.2,
+          "sampleSd": 8.327,
+          "min": 2.4,
+          "max": 30.4
+        },
+        "peakHeightYd": {
+          "n": 33,
+          "mean": 18.739,
+          "median": 20.8,
+          "sampleSd": 9.454,
+          "min": 0.3,
+          "max": 32.8
+        },
+        "descentDeg": {
+          "n": 33,
+          "mean": 39.315,
+          "median": 45.9,
+          "sampleSd": 14.286,
+          "min": 5.0,
+          "max": 52.3
+        },
+        "backSpinRpm": {
+          "n": 33,
+          "mean": 6315.394,
+          "median": 7475.0,
+          "sampleSd": 2924.03,
+          "min": -1259.0,
+          "max": 10073.0
+        },
+        "totalMinusCarryYd": {
+          "n": 33,
+          "mean": 15.7,
+          "median": 8.5,
+          "sampleSd": 17.449,
+          "min": 1.0999999999999943,
+          "max": 65.2
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 30,
+        "insideOutCount": 2,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 8.903
+      },
+      "offline": {
+        "meanAbsoluteYd": 8.988,
+        "within10YdCount": 19,
+        "within20YdCount": 31,
+        "leftCount": 20,
+        "rightCount": 13
+      },
+      "launchBelow10DegCount": 4,
+      "negativeBackSpinCount": 2
+    }
+  ],
+  "selectedShots": {
+    "I7": {
+      "longestCarry": [
+        {
+          "shotKey": "4537ea08-513a-4bbb-af95-355834295d47",
+          "chronologicalOrdinal": 154,
+          "shotTime": "14:50:54.514",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 141.8,
+          "totalYd": 155.0,
+          "ballSpeedMph": 102.6,
+          "peakHeightYd": 28.9,
+          "launchDeg": 22.4,
+          "descentDeg": 46.6,
+          "offline": "16.4 L",
+          "reportedPath": "9.6\u00b0 O-I",
+          "reportedFaceToPath": "1.7\u00b0 O"
+        },
+        {
+          "shotKey": "99b2c975-cb81-4489-83cf-75eed1ac7dfd",
+          "chronologicalOrdinal": 148,
+          "shotTime": "14:48:41.937",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 140.6,
+          "totalYd": 151.4,
+          "ballSpeedMph": 104.3,
+          "peakHeightYd": 29.8,
+          "launchDeg": 22.2,
+          "descentDeg": 47.9,
+          "offline": "3.3 R",
+          "reportedPath": "9.5\u00b0 O-I",
+          "reportedFaceToPath": "7.0\u00b0 O"
+        },
+        {
+          "shotKey": "12ec05d8-d311-45eb-b003-589aa9bf2114",
+          "chronologicalOrdinal": 142,
+          "shotTime": "14:46:38.482",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 134.7,
+          "totalYd": 146.6,
+          "ballSpeedMph": 99.6,
+          "peakHeightYd": 28.9,
+          "launchDeg": 24.0,
+          "descentDeg": 47.6,
+          "offline": "9.6 L",
+          "reportedPath": "9.8\u00b0 O-I",
+          "reportedFaceToPath": "2.1\u00b0 O"
+        },
+        {
+          "shotKey": "93ef6aa1-82bc-4957-a226-f7ab4dba4387",
+          "chronologicalOrdinal": 159,
+          "shotTime": "14:52:33.997",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 134.1,
+          "totalYd": 142.9,
+          "ballSpeedMph": 102.3,
+          "peakHeightYd": 31.0,
+          "launchDeg": 24.3,
+          "descentDeg": 49.7,
+          "offline": "8.9 R",
+          "reportedPath": "12.3\u00b0 O-I",
+          "reportedFaceToPath": "10.5\u00b0 O"
+        },
+        {
+          "shotKey": "f5e9da3d-34ad-44d3-82c9-b33a774ed537",
+          "chronologicalOrdinal": 153,
+          "shotTime": "14:50:34.730",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 133.0,
+          "totalYd": 145.4,
+          "ballSpeedMph": 98.7,
+          "peakHeightYd": 25.3,
+          "launchDeg": 21.3,
+          "descentDeg": 44.9,
+          "offline": "23.4 L",
+          "reportedPath": "7.4\u00b0 O-I",
+          "reportedFaceToPath": "1.9\u00b0 C"
+        }
+      ],
+      "fastestBallSpeed": [
+        {
+          "shotKey": "99b2c975-cb81-4489-83cf-75eed1ac7dfd",
+          "chronologicalOrdinal": 148,
+          "shotTime": "14:48:41.937",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 140.6,
+          "totalYd": 151.4,
+          "ballSpeedMph": 104.3,
+          "peakHeightYd": 29.8,
+          "launchDeg": 22.2,
+          "descentDeg": 47.9,
+          "offline": "3.3 R",
+          "reportedPath": "9.5\u00b0 O-I",
+          "reportedFaceToPath": "7.0\u00b0 O"
+        },
+        {
+          "shotKey": "4537ea08-513a-4bbb-af95-355834295d47",
+          "chronologicalOrdinal": 154,
+          "shotTime": "14:50:54.514",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 141.8,
+          "totalYd": 155.0,
+          "ballSpeedMph": 102.6,
+          "peakHeightYd": 28.9,
+          "launchDeg": 22.4,
+          "descentDeg": 46.6,
+          "offline": "16.4 L",
+          "reportedPath": "9.6\u00b0 O-I",
+          "reportedFaceToPath": "1.7\u00b0 O"
+        },
+        {
+          "shotKey": "93ef6aa1-82bc-4957-a226-f7ab4dba4387",
+          "chronologicalOrdinal": 159,
+          "shotTime": "14:52:33.997",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 134.1,
+          "totalYd": 142.9,
+          "ballSpeedMph": 102.3,
+          "peakHeightYd": 31.0,
+          "launchDeg": 24.3,
+          "descentDeg": 49.7,
+          "offline": "8.9 R",
+          "reportedPath": "12.3\u00b0 O-I",
+          "reportedFaceToPath": "10.5\u00b0 O"
+        },
+        {
+          "shotKey": "be224296-efaf-460f-b058-e6d742660150",
+          "chronologicalOrdinal": 157,
+          "shotTime": "14:51:48.651",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 132.2,
+          "totalYd": 140.8,
+          "ballSpeedMph": 101.3,
+          "peakHeightYd": 31.3,
+          "launchDeg": 25.4,
+          "descentDeg": 50.2,
+          "offline": "16.1 R",
+          "reportedPath": "12.5\u00b0 O-I",
+          "reportedFaceToPath": "12.6\u00b0 O"
+        },
+        {
+          "shotKey": "12ec05d8-d311-45eb-b003-589aa9bf2114",
+          "chronologicalOrdinal": 142,
+          "shotTime": "14:46:38.482",
+          "actualClub": "I7",
+          "exportedClub": "I7",
+          "carryYd": 134.7,
+          "totalYd": 146.6,
+          "ballSpeedMph": 99.6,
+          "peakHeightYd": 28.9,
+          "launchDeg": 24.0,
+          "descentDeg": 47.6,
+          "offline": "9.6 L",
+          "reportedPath": "9.8\u00b0 O-I",
+          "reportedFaceToPath": "2.1\u00b0 O"
+        }
+      ]
+    },
+    "I9": {
+      "longestCarry": [
+        {
+          "shotKey": "281145f2-10df-4e22-beed-f72a183666f6",
+          "chronologicalOrdinal": 178,
+          "shotTime": "15:04:15.266",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 127.9,
+          "totalYd": 136.4,
+          "ballSpeedMph": 98.7,
+          "peakHeightYd": 30.5,
+          "launchDeg": 25.1,
+          "descentDeg": 50.0,
+          "offline": "10.1 L",
+          "reportedPath": "10.3\u00b0 O-I",
+          "reportedFaceToPath": "2.6\u00b0 O"
+        },
+        {
+          "shotKey": "1180a45f-1792-48c9-9be8-4e376259d68e",
+          "chronologicalOrdinal": 169,
+          "shotTime": "15:00:53.237",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 122.6,
+          "totalYd": 130.7,
+          "ballSpeedMph": 96.6,
+          "peakHeightYd": 32.8,
+          "launchDeg": 28.2,
+          "descentDeg": 52.0,
+          "offline": "12.4 L",
+          "reportedPath": "10.7\u00b0 O-I",
+          "reportedFaceToPath": "2.9\u00b0 O"
+        },
+        {
+          "shotKey": "146e0aa5-7b2c-4bb0-8228-1870b181b329",
+          "chronologicalOrdinal": 183,
+          "shotTime": "15:05:48.922",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 122.3,
+          "totalYd": 130.1,
+          "ballSpeedMph": 96.2,
+          "peakHeightYd": 30.0,
+          "launchDeg": 25.8,
+          "descentDeg": 50.3,
+          "offline": "5.9 L",
+          "reportedPath": "8.7\u00b0 O-I",
+          "reportedFaceToPath": "3.5\u00b0 O"
+        },
+        {
+          "shotKey": "c0405fd9-ef4e-47bd-9614-856a0d58c81b",
+          "chronologicalOrdinal": 188,
+          "shotTime": "15:08:01.627",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 117.2,
+          "totalYd": 126.0,
+          "ballSpeedMph": 91.8,
+          "peakHeightYd": 28.0,
+          "launchDeg": 26.9,
+          "descentDeg": 49.5,
+          "offline": "11.5 L",
+          "reportedPath": "8.6\u00b0 O-I",
+          "reportedFaceToPath": "1.2\u00b0 O"
+        },
+        {
+          "shotKey": "7f8b8585-2493-4e02-a163-cb50dc542b54",
+          "chronologicalOrdinal": 180,
+          "shotTime": "15:04:48.598",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 115.1,
+          "totalYd": 121.3,
+          "ballSpeedMph": 92.4,
+          "peakHeightYd": 27.7,
+          "launchDeg": 26.4,
+          "descentDeg": 49.9,
+          "offline": "2.3 R",
+          "reportedPath": "12.9\u00b0 O-I",
+          "reportedFaceToPath": "9.1\u00b0 O"
+        }
+      ],
+      "fastestBallSpeed": [
+        {
+          "shotKey": "5690bdef-e128-40e7-9489-a5594deadb2a",
+          "chronologicalOrdinal": 171,
+          "shotTime": "15:01:44.457",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 95.3,
+          "totalYd": 158.0,
+          "ballSpeedMph": 109.1,
+          "peakHeightYd": 2.6,
+          "launchDeg": 2.4,
+          "descentDeg": 8.8,
+          "offline": "9.1 L",
+          "reportedPath": "13.5\u00b0 O-I",
+          "reportedFaceToPath": "2.3\u00b0 O"
+        },
+        {
+          "shotKey": "8ce1e931-e3c6-4d06-9fe9-4594164df193",
+          "chronologicalOrdinal": 193,
+          "shotTime": "15:10:11.511",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 94.1,
+          "totalYd": 147.3,
+          "ballSpeedMph": 101.2,
+          "peakHeightYd": 2.8,
+          "launchDeg": 3.1,
+          "descentDeg": 10.0,
+          "offline": "10.9 L",
+          "reportedPath": "10.2\u00b0 O-I",
+          "reportedFaceToPath": "1.2\u00b0 O"
+        },
+        {
+          "shotKey": "281145f2-10df-4e22-beed-f72a183666f6",
+          "chronologicalOrdinal": 178,
+          "shotTime": "15:04:15.266",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 127.9,
+          "totalYd": 136.4,
+          "ballSpeedMph": 98.7,
+          "peakHeightYd": 30.5,
+          "launchDeg": 25.1,
+          "descentDeg": 50.0,
+          "offline": "10.1 L",
+          "reportedPath": "10.3\u00b0 O-I",
+          "reportedFaceToPath": "2.6\u00b0 O"
+        },
+        {
+          "shotKey": "1180a45f-1792-48c9-9be8-4e376259d68e",
+          "chronologicalOrdinal": 169,
+          "shotTime": "15:00:53.237",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 122.6,
+          "totalYd": 130.7,
+          "ballSpeedMph": 96.6,
+          "peakHeightYd": 32.8,
+          "launchDeg": 28.2,
+          "descentDeg": 52.0,
+          "offline": "12.4 L",
+          "reportedPath": "10.7\u00b0 O-I",
+          "reportedFaceToPath": "2.9\u00b0 O"
+        },
+        {
+          "shotKey": "146e0aa5-7b2c-4bb0-8228-1870b181b329",
+          "chronologicalOrdinal": 183,
+          "shotTime": "15:05:48.922",
+          "actualClub": "I9",
+          "exportedClub": "I9",
+          "carryYd": 122.3,
+          "totalYd": 130.1,
+          "ballSpeedMph": 96.2,
+          "peakHeightYd": 30.0,
+          "launchDeg": 25.8,
+          "descentDeg": 50.3,
+          "offline": "5.9 L",
+          "reportedPath": "8.7\u00b0 O-I",
+          "reportedFaceToPath": "3.5\u00b0 O"
+        }
+      ]
+    }
+  },
+  "sevenIronChronologicalWindows": [
+    {
+      "exportedSevenIronStart": 1,
+      "exportedSevenIronEnd": 40,
+      "chronologicalStart": 2,
+      "chronologicalEnd": 41,
+      "n": 40,
+      "firstShotTime": "13:45:26.406",
+      "lastShotTime": "14:01:00.401",
+      "metrics": {
+        "carryYd": {
+          "n": 40,
+          "mean": 57.62,
+          "median": 66.1,
+          "sampleSd": 30.064,
+          "min": 13.5,
+          "max": 102.0
+        },
+        "totalYd": {
+          "n": 40,
+          "mean": 80.37,
+          "median": 79.55,
+          "sampleSd": 18.931,
+          "min": 42.9,
+          "max": 113.3
+        },
+        "ballSpeedMph": {
+          "n": 40,
+          "mean": 65.1,
+          "median": 66.1,
+          "sampleSd": 8.922,
+          "min": 46.6,
+          "max": 81.8
+        },
+        "launchDeg": {
+          "n": 40,
+          "mean": 18.828,
+          "median": 24.2,
+          "sampleSd": 9.435,
+          "min": 2.0,
+          "max": 29.1
+        },
+        "peakHeightYd": {
+          "n": 40,
+          "mean": 8.617,
+          "median": 10.45,
+          "sampleSd": 6.517,
+          "min": 0.2,
+          "max": 18.9
+        },
+        "descentDeg": {
+          "n": 40,
+          "mean": 27.648,
+          "median": 34.0,
+          "sampleSd": 14.352,
+          "min": 5.3,
+          "max": 43.7
+        },
+        "backSpinRpm": {
+          "n": 40,
+          "mean": 3364.425,
+          "median": 4083.0,
+          "sampleSd": 2560.49,
+          "min": -1264.0,
+          "max": 7906.0
+        },
+        "totalMinusCarryYd": {
+          "n": 40,
+          "mean": 22.75,
+          "median": 14.3,
+          "sampleSd": 17.126,
+          "min": 7.6000000000000085,
+          "max": 61.7
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 38,
+        "insideOutCount": 1,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 11.518
+      },
+      "offline": {
+        "meanAbsoluteYd": 4.725,
+        "within10YdCount": 37,
+        "within20YdCount": 40,
+        "leftCount": 20,
+        "rightCount": 20
+      },
+      "launchBelow10DegCount": 11,
+      "negativeBackSpinCount": 7
+    },
+    {
+      "exportedSevenIronStart": 41,
+      "exportedSevenIronEnd": 80,
+      "chronologicalStart": 42,
+      "chronologicalEnd": 81,
+      "n": 40,
+      "firstShotTime": "14:01:27.421",
+      "lastShotTime": "14:19:05.403",
+      "metrics": {
+        "carryYd": {
+          "n": 40,
+          "mean": 71.535,
+          "median": 82.75,
+          "sampleSd": 31.69,
+          "min": 5.5,
+          "max": 126.6
+        },
+        "totalYd": {
+          "n": 40,
+          "mean": 90.06,
+          "median": 96.5,
+          "sampleSd": 25.304,
+          "min": 26.8,
+          "max": 138.5
+        },
+        "ballSpeedMph": {
+          "n": 40,
+          "mean": 70.472,
+          "median": 72.9,
+          "sampleSd": 13.176,
+          "min": 42.8,
+          "max": 95.6
+        },
+        "launchDeg": {
+          "n": 40,
+          "mean": 19.773,
+          "median": 22.3,
+          "sampleSd": 7.437,
+          "min": 2.0,
+          "max": 27.9
+        },
+        "peakHeightYd": {
+          "n": 40,
+          "mean": 10.89,
+          "median": 11.7,
+          "sampleSd": 7.272,
+          "min": 0.1,
+          "max": 23.9
+        },
+        "descentDeg": {
+          "n": 40,
+          "mean": 30.773,
+          "median": 35.0,
+          "sampleSd": 12.849,
+          "min": 3.1,
+          "max": 45.8
+        },
+        "backSpinRpm": {
+          "n": 40,
+          "mean": 4260.375,
+          "median": 4874.0,
+          "sampleSd": 2003.811,
+          "min": -1261.0,
+          "max": 7068.0
+        },
+        "totalMinusCarryYd": {
+          "n": 40,
+          "mean": 18.525,
+          "median": 13.65,
+          "sampleSd": 13.437,
+          "min": 8.100000000000009,
+          "max": 74.3
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 35,
+        "insideOutCount": 4,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 9.893
+      },
+      "offline": {
+        "meanAbsoluteYd": 5.992,
+        "within10YdCount": 34,
+        "within20YdCount": 40,
+        "leftCount": 18,
+        "rightCount": 22
+      },
+      "launchBelow10DegCount": 7,
+      "negativeBackSpinCount": 2
+    },
+    {
+      "exportedSevenIronStart": 81,
+      "exportedSevenIronEnd": 120,
+      "chronologicalStart": 82,
+      "chronologicalEnd": 121,
+      "n": 40,
+      "firstShotTime": "14:19:29.407",
+      "lastShotTime": "14:39:28.886",
+      "metrics": {
+        "carryYd": {
+          "n": 40,
+          "mean": 90.11,
+          "median": 95.6,
+          "sampleSd": 29.753,
+          "min": 22.5,
+          "max": 132.7
+        },
+        "totalYd": {
+          "n": 40,
+          "mean": 110.865,
+          "median": 111.45,
+          "sampleSd": 18.507,
+          "min": 74.5,
+          "max": 145.1
+        },
+        "ballSpeedMph": {
+          "n": 40,
+          "mean": 81.185,
+          "median": 80.05,
+          "sampleSd": 8.739,
+          "min": 63.8,
+          "max": 98.6
+        },
+        "launchDeg": {
+          "n": 40,
+          "mean": 19.482,
+          "median": 22.35,
+          "sampleSd": 7.306,
+          "min": 2.0,
+          "max": 25.0
+        },
+        "peakHeightYd": {
+          "n": 40,
+          "mean": 13.978,
+          "median": 14.7,
+          "sampleSd": 7.306,
+          "min": 0.4,
+          "max": 26.2
+        },
+        "descentDeg": {
+          "n": 40,
+          "mean": 33.407,
+          "median": 37.15,
+          "sampleSd": 12.69,
+          "min": 5.2,
+          "max": 45.8
+        },
+        "backSpinRpm": {
+          "n": 40,
+          "mean": 4568.325,
+          "median": 4560.0,
+          "sampleSd": 1726.205,
+          "min": -1262.0,
+          "max": 8140.0
+        },
+        "totalMinusCarryYd": {
+          "n": 40,
+          "mean": 20.755,
+          "median": 14.2,
+          "sampleSd": 18.767,
+          "min": 4.200000000000003,
+          "max": 72.8
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 36,
+        "insideOutCount": 3,
+        "zeroUnqualifiedCount": 1,
+        "meanAbsoluteDegIncludingZeros": 10.37
+      },
+      "offline": {
+        "meanAbsoluteYd": 7.848,
+        "within10YdCount": 30,
+        "within20YdCount": 38,
+        "leftCount": 21,
+        "rightCount": 19
+      },
+      "launchBelow10DegCount": 6,
+      "negativeBackSpinCount": 1
+    },
+    {
+      "exportedSevenIronStart": 121,
+      "exportedSevenIronEnd": 160,
+      "chronologicalStart": 122,
+      "chronologicalEnd": 161,
+      "n": 40,
+      "firstShotTime": "14:39:49.937",
+      "lastShotTime": "14:53:13.304",
+      "metrics": {
+        "carryYd": {
+          "n": 40,
+          "mean": 97.39,
+          "median": 107.25,
+          "sampleSd": 34.066,
+          "min": 25.5,
+          "max": 141.8
+        },
+        "totalYd": {
+          "n": 40,
+          "mean": 116.543,
+          "median": 118.2,
+          "sampleSd": 23.19,
+          "min": 72.1,
+          "max": 155.0
+        },
+        "ballSpeedMph": {
+          "n": 40,
+          "mean": 86.03,
+          "median": 87.55,
+          "sampleSd": 10.534,
+          "min": 66.6,
+          "max": 104.3
+        },
+        "launchDeg": {
+          "n": 40,
+          "mean": 19.49,
+          "median": 21.5,
+          "sampleSd": 6.901,
+          "min": 2.0,
+          "max": 28.8
+        },
+        "peakHeightYd": {
+          "n": 40,
+          "mean": 16.348,
+          "median": 16.55,
+          "sampleSd": 9.654,
+          "min": 0.4,
+          "max": 31.3
+        },
+        "descentDeg": {
+          "n": 40,
+          "mean": 34.97,
+          "median": 39.3,
+          "sampleSd": 13.77,
+          "min": 5.0,
+          "max": 51.6
+        },
+        "backSpinRpm": {
+          "n": 40,
+          "mean": 4783.65,
+          "median": 5364.5,
+          "sampleSd": 2485.459,
+          "min": -1261.0,
+          "max": 11223.0
+        },
+        "totalMinusCarryYd": {
+          "n": 40,
+          "mean": 19.152,
+          "median": 12.6,
+          "sampleSd": 18.365,
+          "min": 2.1999999999999886,
+          "max": 75.9
+        }
+      },
+      "reportedPath": {
+        "outsideInCount": 39,
+        "insideOutCount": 1,
+        "zeroUnqualifiedCount": 0,
+        "meanAbsoluteDegIncludingZeros": 9.953
+      },
+      "offline": {
+        "meanAbsoluteYd": 13.765,
+        "within10YdCount": 14,
+        "within20YdCount": 30,
+        "leftCount": 16,
+        "rightCount": 24
+      },
+      "launchBelow10DegCount": 6,
+      "negativeBackSpinCount": 3
+    }
+  ],
+  "limitations": [
+    "The initial DR label is confirmed as I7; no other label corrections were supplied. Device, handedness, alignment and exact change boundaries remain unconfirmed.",
+    "Course, hole and shot-number fields are blank; do not infer play-through, scores or missing swings.",
+    "Club speed, smash factor, club lie, impact speed, impact location and closure rate are zero throughout; do not interpret as usable tracking evidence.",
+    "Unqualified zero path readings are not proof of neutral delivery. Negative backspin readings need device/context verification and are retained, not silently corrected.",
+    "Low launch and large total-minus-carry values can inflate total distance; they do not prove a thin strike or a successful swing.",
+    "Path fields describe reported club delivery, not body sequencing, foot pressure or an over-the-top diagnosis.",
+    "Different club labels and unlabeled experiments are not directly comparable benchmarks; no causal or lasting-improvement claim is supported yet."
+  ],
+  "findings": [
+    "The longest-carry I7 shots are genuinely airborne in the export, with substantial peak height and descent angle rather than extreme simulated runout.",
+    "The fastest I9 and longest-total I9 are low-launch runners, not the longest carries. Separate speed from useful iron flight.",
+    "The selected longest-carry shots still report outside-in path; improved distance does not establish a path or pelvic-rotation correction.",
+    "The wait/float feel is a candidate for further comparison, not a demonstrated cause: setup, takeaway intention and effort also changed, and no precise shot boundaries are supplied."
+  ],
+  "nextDiscussion": [
+    "Approximately when did the wait/float feel begin, and was it also used with I9?",
+    "Upload selected-shot video or the swing-analysis report if available for independent rotation/plane review.",
+    "Confirm device, handedness and any settings or target changes."
+  ]
+}

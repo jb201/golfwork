@@ -7,9 +7,10 @@ Open [the home page](index.html) locally over HTTP or at **https://jb201.github.
 - [Journal](index.html): dated plans/results and month navigation.
 - [Plan](coach/plan.html): generate a saved next-session snapshot from the latest earlier completed session.
 - [Record results](coach/import.html): import measured shot CSV or enter an uploaded session summary; no self-grading.
-- [Progress](coach/progress.html): normal 7i session averages, sample sizes, and goal gap.
+- [Progress](coach/progress.html): normal 7i trend, separate exploratory markers, sample context, and saved session reviews. Exploratory totals are not standardized goal checks.
 - [Session 01](coach/session.html?id=2026-11-01-session-01): the saved first plan, actual practice/play results, and post-lesson review.
 - [Session 02](coach/session.html?id=2026-11-02-session-02): the next saved plan; November 2 is a tentative planning date, with no results yet.
+- [Session 2 -- revamped, did not follow plan](coach/session.html?id=2026-11-06-session-03): November 6 exploration, all-shot 7i summary, long 7i/9i selections, player feedback, and a preserve-speed/refine-delivery review. The original Session 02 plan is retained as intended work, not rewritten or marked completed.
 - [Session 02 working guide](sessions/session-02-draft/notes/session-guide.md): original undated discussion draft; the journal now holds the saved plan.
 - [Research & History](coach/library.html): original benchmark dashboard, diagrams, workbooks, sources and prototype history.
 
